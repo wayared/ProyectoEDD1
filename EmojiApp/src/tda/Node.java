@@ -1,33 +1,42 @@
 package tda;
 
-class Node<E> {
-    private E content;
-    private Node<E> next;
+class Node<Imagen> {
+    private Node<Imagen> prev;
+    private Imagen content;
+    private Node<Imagen> next;
     
-    public Node (E content) {
+    public Node (Imagen content) {
         this.content = content;
         this.next = null;
     }
     
-    public Node (E content, Node<E> next) {
+    public Node (Imagen content, Node<Imagen> next) {
         this(content);
         this.next = next;
     }
 
-    public E getContent() {
+    public Imagen getContent() {
         return content;
     }
 
-    public void setContent(E content) {
+    public void setContent(Imagen content) {
         this.content = content;
     }
 
-    public Node<E> getNext() {
+    public Node<Imagen> getNext() {
         return next;
     }
 
-    public void setNext(Node<E> next) {
+    public void setNext(Node<Imagen> next) {
         this.next = next;
+    }
+    
+    public Node<Imagen> getPrev() {
+        return prev;
+    }
+
+    public void setPrev(Node<Imagen> prev) {
+        this.prev = prev;
     }
     
     
