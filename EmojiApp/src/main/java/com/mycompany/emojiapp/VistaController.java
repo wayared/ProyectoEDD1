@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package emojiapp;
+package com.mycompany.emojiapp;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -40,7 +42,7 @@ public class VistaController implements Initializable {
     @FXML
     private Button prevButton;
     
-    private LinkedList<Node> menuOptions;
+    private LinkedList<Image> menuOptions;
     
     
 
