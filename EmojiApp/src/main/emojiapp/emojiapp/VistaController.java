@@ -6,7 +6,10 @@ package emojiapp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -14,6 +17,30 @@ import javafx.fxml.Initializable;
  * @author Jurgen
  */
 public class VistaController implements Initializable {
+    
+    @FXML
+    private AnchorPane anchorPane;
+    
+    @FXML
+    private Button nextButton;
+    @FXML
+    private Button opt1;
+    @FXML
+    private Button opt2;
+    @FXML
+    private Button opt3;
+    @FXML
+    private Button opt4;
+    @FXML
+    private Button opt5;
+    @FXML
+    private Button opt6;
+    @FXML
+    private Button opt7;
+    @FXML
+    private Button prevButton;
+    
+    
 
     /**
      * Initializes the controller class.
