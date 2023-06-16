@@ -1,22 +1,20 @@
-package com.mycompany.emojiapp;
+package tda;
 
 
 
 public class LinkedList<E> implements List<E> {
 
-    private Node<E> first;
-    private Node<E> last;
+    private Nodo<E> first;
 
     public LinkedList() {
         this.first = null;
-        this.last = null;
     }
 
     @Override
     public int size() {
         int cont = 0;
-        Node<E> viajero;
-        for (viajero = first; viajero != null; viajero = viajero.getNext()) {
+        Nodo<E> viajero;
+        for (viajero = first; viajero != this.first ; viajero = viajero.getNext()) {
             cont++;
         }
         return cont;
@@ -25,18 +23,18 @@ public class LinkedList<E> implements List<E> {
     @Override
     public String toString() {
         String result = "{";
-        Node<E> p;
-        for (p = first; p != null; p = p.getNext()) {
+        Nodo<E> p;
+        for (p = first; p != this.first; p = p.getNext()) {
 
             result += p.getContent() + ", ";
         }
-        result = result.substring(0, result.length() - 2);
+      
         return result + "}";
     }
 
     @Override
     public boolean isEmpty() {
-        return this.first == null && this.last == null;
+        return this.first == null ;
     }
 
     @Override
@@ -48,13 +46,19 @@ public class LinkedList<E> implements List<E> {
     public boolean addFirst(E element) {
         if (element == null) {
             return false;
-        }
-        Node<E> nuevo = new Node<>(element);
-        nuevo.setNext(this.first);
+        }      
+        Nodo<E> nuevo = new Nodo<>(element);
         if (this.isEmpty()) {
-            this.last = nuevo;
+            nuevo.setPrevious(nuevo);
+            nuevo.setNext(nuevo);
+            this.first = nuevo;
+        }else{
+            nuevo.setPrevious(this.first.getPrevious());
+            nuevo.setNext(this.first);
+            this.first.getPrevious().setNext(nuevo);
+            this.first.setPrevious(nuevo);
+            this.first = nuevo;          
         }
-        this.first = nuevo;
         return true;
     }
 
@@ -63,13 +67,14 @@ public class LinkedList<E> implements List<E> {
         if (element == null) {
             return false;
         }
-        Node<E> nuevo = new Node<>(element);
+        Nodo<E> nuevo = new Nodo<>(element);
         if (this.isEmpty()) {
             this.first = nuevo;
-        } else {
-            this.last.setNext(nuevo);
         }
-        this.last = nuevo;
+        nuevo.setNext(this.first);
+        nuevo.setPrevious(this.first.getPrevious()); 
+        this.first.setPrevious(nuevo);
+        this.first.getPrevious().setNext( nuevo);
         return true;
     }
 
@@ -112,11 +117,11 @@ public class LinkedList<E> implements List<E> {
     public LinkedList<E> getReversedPairs(){
         
         LinkedList<E> nuevaLista = new LinkedList<>();
-        Node<E> current = first;
+        Nodo<E> current = first;
 
         while (current != null && current.getNext() != null) {
-            Node<E> firstNode = current;
-            Node<E> secondNode = current.getNext();
+            Nodo<E> firstNode = current;
+            Nodo<E> secondNode = current.getNext();
 
             nuevaLista.addLast(secondNode.getContent());
             nuevaLista.addLast(firstNode.getContent());
@@ -134,7 +139,7 @@ public class LinkedList<E> implements List<E> {
     public LinkedList<E> splitByIndex(int index){
         
         LinkedList<E> nuevaLista = new LinkedList<>();
-        Node<E> nodoActual = first;
+        Nodo<E> nodoActual = first;
         
         for(int i = 0; i< index; i++){    // tomo el conjunto desde el primer elemento hasta el indice indicado
             nuevaLista.addLast(nodoActual.getContent());  // añado los elementos a la sublista
@@ -151,7 +156,7 @@ public class LinkedList<E> implements List<E> {
             throw new IllegalArgumentException("Invalid value for n");
         }
         
-        Node<E> nodoActual = first;
+        Nodo<E> nodoActual = first;
         for(int i = 0; i < this.size()-n-1 ; i++){ // itero la lista desde el final hasta el indice n 
             nodoActual = nodoActual.getNext();
            
@@ -165,17 +170,17 @@ public class LinkedList<E> implements List<E> {
         throw new IllegalArgumentException();
     }
         
-        Node<E> nodoActual = first;
+        Nodo<E> nodoActual = first;
         for(int i = 0; i < start-1 ; i++){
             nodoActual = nodoActual.getNext();   // toma los primeros n elementos hasta start
         }
-        Node<E> primerNodo = nodoActual;   // "crea" la sublista (en realidad es un nodo) de los primeros n elementos hasta start
+        Nodo<E> primerNodo = nodoActual;   // "crea" la sublista (en realidad es un nodo) de los primeros n elementos hasta start
         
         for(int n = end - 1; n < this.size() ; n++){ // toma los elementos desde el end hasta el final de la lista 
             nodoActual = nodoActual.getNext();
         }
         
-        Node<E> segundoNodo= nodoActual;  // "crea" la sublista (en realidad es un nodo) desde el elemento end hasta el final de la lista
+        Nodo<E> segundoNodo= nodoActual;  // "crea" la sublista (en realidad es un nodo) desde el elemento end hasta el final de la lista
                                                 // toma el enlace del nodo creado al principio y lo coloca en este nuevo nodo credao
         
         primerNodo.setNext(segundoNodo); // junto las dos sublistas donde no incluyen los elementos entre los rangos asignados

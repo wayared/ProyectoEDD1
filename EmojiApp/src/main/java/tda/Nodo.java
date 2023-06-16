@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.emojiapp;
+package tda;
 
 /**
  *
  * @author wayar
  */
 
-public class Node<E> {
-        private Node<E> next;
-        private Node<E> previous;
+public class Nodo<E> {
+        private Nodo<E> next;
+        private Nodo<E> previous;
         private E content;
         
-        public Node(E content){
+        public Nodo(E content){
             this.content = content;
             this.next = null;
             this.previous = null;
@@ -27,17 +27,17 @@ public class Node<E> {
             this.content = content;
         }
          
-        public Node<E> getNext(){
+        public Nodo<E> getNext(){
             return next;
         }
-        public void setNext(Node<E> E){
-            this.next = next;
+        public void setNext(Nodo<E> nextNode){
+            this.next = nextNode;
         }
         
-        public Node<E> getPrevious(){
+        public Nodo<E> getPrevious(){
             return previous;
         }
-        public void setPrevious(){
-            this.previous = previous;
+        public void setPrevious(Nodo<E> prev){
+            this.previous = prev;
         }
     }

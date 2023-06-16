@@ -1,6 +1,6 @@
-package com.mycompany.emojiapp;
+package tda;
 
-import com.mycompany.emojiapp.LinkedList;
+import tda.LinkedList;
 
 public interface List<E> {
 
