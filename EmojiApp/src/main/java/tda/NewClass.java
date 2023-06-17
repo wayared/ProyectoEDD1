@@ -15,16 +15,12 @@ public class NewClass {
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
         list.addFirst("A");
-        list.addFirst("B");
-        System.out.println("aa");
+       list.addFirst("B");
         list.addFirst("C");
         list.addFirst("D");
-        System.out.println("aa");
         System.out.println(list);
-        System.out.println("aa");
-  //      list.addLast("E");
+        list.addLast("E");
         System.out.println(list);
-        System.out.println("aa");
     }
 
     

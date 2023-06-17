@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="664.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.emojiapp.ViewController">
+    <stylesheets>
+        <URL value="@/styles/view.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutY="-1.0" prefHeight="441.0" prefWidth="664.0">
+         <children>
+            <HBox prefHeight="56.0" prefWidth="645.0">
+               <children>
+                  <Label prefHeight="73.0" prefWidth="826.0" text="EmojiApp">
+                     <padding>
+                        <Insets left="280.0" />
+                     </padding>
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="182.0" prefWidth="600.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="70.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Button">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Button" />
+                  <Button mnemonicParsing="false" text="Button" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="656.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Prev">
+                     <HBox.margin>
+                        <Insets left="40.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option1" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option2" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option3" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option4" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option5" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option6" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="option7" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Next">
+                     <HBox.margin>
+                        <Insets left="10.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
