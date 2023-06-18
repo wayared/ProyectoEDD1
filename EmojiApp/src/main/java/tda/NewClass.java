@@ -4,7 +4,9 @@
  */
 package tda;
 
+import java.util.Iterator;
 import static javafx.application.Application.launch;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -21,7 +23,15 @@ public class NewClass {
         System.out.println(list);
         list.addLast("E");
         System.out.println(list);
+        
+        Iterator<String> it = list.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+        
     }
+    
+    
 
     
 }

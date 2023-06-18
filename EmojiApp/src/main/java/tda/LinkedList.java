@@ -201,21 +201,20 @@ public class LinkedList<E> implements List<E> {
         
         Iterator<E> it;
         it = new Iterator<E>() {
-            Nodo<E> old = first;
-            Nodo<E> cursor = old;
+            Nodo<E> cursor = first;
             
-            
-          
             @Override
             public boolean hasNext() {
-                return cursor != old ;
+                return cursor != null;              
             }
-            
-            
+                        
             @Override
             public E next() {
                 E element = cursor.getContent();
                 cursor = cursor.getNext();
+                if(cursor == first){
+                    cursor = null;
+                }
                 return element;
             }
         };
