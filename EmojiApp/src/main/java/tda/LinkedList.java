@@ -72,15 +72,16 @@ public class LinkedList<E> implements List<E> {
             return false;
         }
         Nodo<E> nuevo = new Nodo<>(element);
-        Nodo<E> old_nuevo = this.first;
         if (this.isEmpty()) {
             nuevo.setPrevious(nuevo);
             nuevo.setNext(nuevo);
+            this.first = nuevo;
         } else {
+            this.first.getPrevious().setNext(nuevo);
+            this.first.setPrevious(nuevo);
             nuevo.setPrevious(this.first.getPrevious());
             nuevo.setNext(this.first);
-            old_nuevo.getPrevious().setNext(nuevo);
-            old_nuevo.setPrevious(nuevo);
+            
         }
         return true;
     }

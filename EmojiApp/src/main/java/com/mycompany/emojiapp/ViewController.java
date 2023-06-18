@@ -24,7 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import tda.LinkedList;
+import tda.*;
 
 /**
  * FXML Controller class
@@ -40,9 +40,10 @@ public class ViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
         try {
-            // TODO
-            cargarImagenes();
+            // TODO         
             colocarImangenBotones();
             
         } catch (FileNotFoundException ex) {
@@ -72,6 +73,9 @@ public class ViewController implements Initializable {
     @FXML
     private Button option7;
     
+
+    Iterator<Image> it2;
+    
     
 
     
@@ -85,43 +89,29 @@ public class ViewController implements Initializable {
         lista.addLast(option6);
         lista.addLast(option7);
         return lista;
-    }
+            
+        }
+        
     
     private LinkedList<Image> cargarImagenes() throws FileNotFoundException, IOException{
         LinkedList<Image> imagenes = new LinkedList<>();
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
         for(Path file: stream ){
             imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
+            //System.out.println(file.getFileName());
         } 
         return imagenes;
     }
     
     private void colocarImangenBotones() throws FileNotFoundException, IOException{
-
         
-        /* Image imagen1 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_1.png"),50,50,true,false);
-        Image imagen2 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_4.png"),50,50,true,false);
-        Image imagen3 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_5.png"),50,50,true,false);
-        Image imagen4 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_6.png"),50,50,true,false);
-        Image imagen5 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_7.png"),50,50,true,false);
-        Image imagen6 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_8.png"),50,50,true,false);
-        Image imagen7 = new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\faces_9.png"),50,50,true,false);
-             
-        option1.setGraphic((new ImageView(imagen1)));
-        option2.setGraphic((new ImageView(imagen2)));
-        option3.setGraphic((new ImageView(imagen3)));
-        option4.setGraphic((new ImageView(imagen4)));
-        option5.setGraphic((new ImageView(imagen5)));
-        option6.setGraphic((new ImageView(imagen6)));
-        option7.setGraphic((new ImageView(imagen7))); */
-        Iterator<Button> it = listaBotones().iterator();
-        Iterator<Image> it2 = cargarImagenes().iterator();
-        
-        
+         Iterator<Button> it = listaBotones().iterator();
+         Iterator<Image> it2 = cargarImagenes().iterator();
+        System.out.println("b");
         while(it.hasNext()){  
-            it.next().setGraphic((new ImageView(it2.next().toString())));     
+            System.out.println("a");
+           it.next().setGraphic((new ImageView(it2.next())));   
         }
-
-        
+          
     }
 }
