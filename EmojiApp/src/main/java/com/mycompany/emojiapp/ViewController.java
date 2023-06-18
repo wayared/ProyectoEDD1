@@ -107,9 +107,7 @@ public class ViewController implements Initializable {
         
          Iterator<Button> it = listaBotones().iterator();
          Iterator<Image> it2 = cargarImagenes().iterator();
-        System.out.println("b");
         while(it.hasNext()){  
-            System.out.println("a");
            it.next().setGraphic((new ImageView(it2.next())));   
         }
           
