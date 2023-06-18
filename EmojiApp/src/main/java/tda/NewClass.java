@@ -23,6 +23,8 @@ public class NewClass {
         System.out.println(list);
         list.addLast("E");
         System.out.println(list);
+        list.clear();
+        System.out.println(list);
         
         Iterator<String> it = list.iterator();
         

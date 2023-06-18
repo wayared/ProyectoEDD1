@@ -41,10 +41,19 @@ public class LinkedList<E> implements List<E> {
         return this.first == null;
     }
 
-    @Override
-    public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+   @Override
+public void clear() {
+    Nodo<E> current = this.first;
+    while (current != null) {
+        Nodo<E> next = current.getNext();
+        current.setNext(null);
+        current.setPrevious(null);
+        current.setContent(null);
+        current = next;
     }
+    this.first = null;
+}
+
 
     @Override
     public boolean addFirst(E element) {
@@ -104,6 +113,7 @@ public class LinkedList<E> implements List<E> {
     public E remove(E element) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 
     @Override
     public E remove(int index) {

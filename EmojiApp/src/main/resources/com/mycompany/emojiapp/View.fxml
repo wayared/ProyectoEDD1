@@ -35,13 +35,19 @@
             </HBox>
             <HBox prefHeight="70.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" text="Button">
+                  <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="230.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Button" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="MouthButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Boca">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="656.0">

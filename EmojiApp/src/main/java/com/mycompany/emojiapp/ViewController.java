@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -41,10 +42,10 @@ public class ViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
         try {
-            // TODO         
-            colocarImangenBotones();
+            // TODO 
+            cargarImagenesInicio();
+            colocarImagenBotones();
             
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -58,6 +59,14 @@ public class ViewController implements Initializable {
     
     @FXML
     private Pane panel;
+    
+    @FXML
+    private Button FaceButton;
+    @FXML
+    private Button EyeButton;
+    @FXML
+    private Button MouthButton;
+    
     @FXML
     private Button option1;
     @FXML
@@ -74,7 +83,7 @@ public class ViewController implements Initializable {
     private Button option7;
     
 
-    Iterator<Image> it2;
+    LinkedList<Image> imagenes = new LinkedList<>();
     
     
 
@@ -92,23 +101,94 @@ public class ViewController implements Initializable {
             
         }
         
+    @FXML
+    private void cargarImagenes(MouseEvent event) throws FileNotFoundException, IOException{    
+
+        FaceButton.setOnMouseClicked((MouseEvent e) ->{
+                    imagenes.clear();
+        DirectoryStream<Path> stream = null;
+            try {
+                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        for(Path file: stream ){
+            try {
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
+                //System.out.println(file.getFileName());
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+            try {
+                colocarImagenBotones();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+});
+         
+         EyeButton.setOnMouseClicked((MouseEvent e)->{
+               imagenes.clear();
+        DirectoryStream<Path> stream = null;
+            try {
+                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyes"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        for(Path file: stream ){
+            try {
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" +file.getFileName()),50,50,true,false));
+                //System.out.println(file.getFileName());
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+         try {
+                colocarImagenBotones();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+         });
+        
+         MouthButton.setOnMouseClicked((MouseEvent e) ->{
+               imagenes.clear();
+        DirectoryStream<Path> stream = null;
+            try {
+                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\mouth"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        for(Path file: stream ){
+            try {
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\mouth\\" +file.getFileName()),50,50,true,false));
+                //System.out.println(file.getFileName());
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+         
+         try {
+                colocarImagenBotones();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }});
+    }
     
-    private LinkedList<Image> cargarImagenes() throws FileNotFoundException, IOException{
-        LinkedList<Image> imagenes = new LinkedList<>();
+     private void cargarImagenesInicio() throws FileNotFoundException, IOException{    
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
         for(Path file: stream ){
             imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
-            //System.out.println(file.getFileName());
-        } 
-        return imagenes;
-    }
+            //System.out.println(file.getFileName());  
+        }
+     }
     
-    private void colocarImangenBotones() throws FileNotFoundException, IOException{
+    private void colocarImagenBotones() throws FileNotFoundException, IOException{
         
          Iterator<Button> it = listaBotones().iterator();
-         Iterator<Image> it2 = cargarImagenes().iterator();
+         Iterator<Image> it2 = imagenes.iterator();
         while(it.hasNext()){  
-           it.next().setGraphic((new ImageView(it2.next())));   
+           it.next().setGraphic((new ImageView(it2.next())));
+           
         }
           
     }
