@@ -16,14 +16,17 @@ public class NewClass {
     
     public static void main(String[] args) {
         LinkedList<String> list = new LinkedList<>();
-        list.addLast("A");
+        list.addFirst("A");
        list.addLast("B");
         list.addLast("C");
         list.addLast("D");
-        System.out.println(list);
         list.addLast("E");
         System.out.println(list);
-        list.clear();
+       list.nextNode2();
+        System.out.println(list);
+        list.nextNode2();
+        System.out.println(list);
+        list.nextNode2();
         System.out.println(list);
         
         Iterator<String> it = list.iterator();

@@ -82,6 +82,8 @@ public class ViewController implements Initializable {
     @FXML
     private Button option7;
     
+    @FXML
+    private Button nextButton;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -187,9 +189,26 @@ public class ViewController implements Initializable {
          Iterator<Button> it = listaBotones().iterator();
          Iterator<Image> it2 = imagenes.iterator();
         while(it.hasNext()){  
-           it.next().setGraphic((new ImageView(it2.next())));
+           it.next().setGraphic(new ImageView(it2.next()));
            
         }
           
     }
+    
+    @FXML
+    private void nextElement(MouseEvent event){
+        
+        nextButton.setOnMouseClicked((MouseEvent e) ->{
+        imagenes.nextNode2();
+        Iterator<Button> listaBotones = listaBotones().iterator();
+        Iterator<Image> images = imagenes.iterator();
+         while(listaBotones.hasNext()){ 
+             listaBotones.next().setGraphic(new ImageView(images.next()));
+             
+         }
+           
+           
+       });
+                }
+    
 }

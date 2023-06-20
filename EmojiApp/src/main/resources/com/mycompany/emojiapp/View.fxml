@@ -52,7 +52,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="656.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Prev">
+                  <Button fx:id="prevButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Prev">
                      <HBox.margin>
                         <Insets left="40.0" top="30.0" />
                      </HBox.margin>
@@ -92,7 +92,7 @@
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Next">
+                  <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#nextElement" prefHeight="55.0" prefWidth="55.0" text="Next">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>

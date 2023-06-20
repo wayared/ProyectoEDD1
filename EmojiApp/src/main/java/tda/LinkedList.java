@@ -10,6 +10,10 @@ public class LinkedList<E> implements List<E> {
     public LinkedList() {
         this.first = null;
     }
+    
+    public Nodo<E> getFirst(){
+        return this.first;
+    }
 
     @Override
     public int size() {
@@ -166,7 +170,34 @@ public void clear() {
 
     }
 
+    public LinkedList<E> nextNode(LinkedList<E> list ) {
+        LinkedList<E> newList = new LinkedList<>();
+        Nodo<E> firstNode ;
+       for (firstNode = list.getFirst().getNext(); firstNode != list.getFirst(); firstNode = firstNode.getNext()) {
+            newList.addLast(firstNode.getContent());
+        }
+       newList.addLast(list.getFirst().getContent());
+       list.clear();
+       Nodo<E> newfirstNode;
+       for (newfirstNode = newList.getFirst(); newfirstNode != newList.getFirst().getPrevious(); newfirstNode = newfirstNode.getNext()) {
+            list.addLast(newfirstNode.getContent());
+        }
+       list.addLast(newList.getFirst().getPrevious().getContent());
+       return list;
+    }
     
+    public void nextNode2() {
+        
+        Nodo<E> firstNode = this.first;
+        this.first.getNext().setPrevious(this.first.getPrevious());
+        this.first.getPrevious().setNext(this.first.getNext());
+        this.first = this.first.getNext();
+        this.addLast(firstNode.getContent());
+       
+        
+       
+
+    }
     
     public E getNthFromLast(int n) {
 
