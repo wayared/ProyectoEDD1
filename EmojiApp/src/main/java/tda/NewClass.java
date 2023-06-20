@@ -22,11 +22,11 @@ public class NewClass {
         list.addLast("D");
         list.addLast("E");
         System.out.println(list);
-       list.nextNode2();
+       list.nextNode();
         System.out.println(list);
-        list.nextNode2();
+        list.nextNode();
         System.out.println(list);
-        list.nextNode2();
+        list.nextNode();
         System.out.println(list);
         
         Iterator<String> it = list.iterator();

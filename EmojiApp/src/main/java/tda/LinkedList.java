@@ -172,7 +172,7 @@ public void clear() {
 
    
     
-    public void nextNode2() {
+    public void nextNode() {
         
         Nodo<E> firstNode = this.first;
         this.first.getNext().setPrevious(this.first.getPrevious());

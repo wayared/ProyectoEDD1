@@ -199,7 +199,7 @@ public class ViewController implements Initializable {
     private void nextElement(MouseEvent event){
         
         nextButton.setOnMouseClicked((MouseEvent e) ->{
-        imagenes.nextNode2();
+        imagenes.nextNode();
         Iterator<Button> listaBotones = listaBotones().iterator();
         Iterator<Image> images = imagenes.iterator();
          while(listaBotones.hasNext()){ 
