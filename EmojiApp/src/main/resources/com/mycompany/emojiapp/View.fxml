@@ -62,7 +62,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="656.0">
                <children>
-                  <Button fx:id="prevButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" text="Prev">
+                  <Button fx:id="prevButton" mnemonicParsing="false" onMouseClicked="#prevElement" prefHeight="55.0" prefWidth="55.0" text="Prev">
                      <HBox.margin>
                         <Insets left="30.0" top="30.0" />
                      </HBox.margin>

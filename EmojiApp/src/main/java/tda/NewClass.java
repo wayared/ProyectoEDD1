@@ -19,13 +19,19 @@ public class NewClass {
         list.addLast("C");
         list.addLast("D");
         list.addLast("E");
+                
         System.out.println(list);
        list.nextNode();
         System.out.println(list);
         list.nextNode();
         System.out.println(list);
+        
         list.prevNode();
         System.out.println(list);
+        list.prevNode();
+        System.out.println(list);
+       
+        
         
         Iterator<String> it = list.iterator();
         

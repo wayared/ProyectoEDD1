@@ -170,13 +170,25 @@ public void clear() {
 
     }
 
+    
    public void prevNode() {
+       
+     Nodo<E> nodo = this.first;
+     Nodo<E> nodosig = this.first.getNext();
+     Nodo<E> last  = this.first.getPrevious();
+     Nodo<E> last_last = last.getPrevious();
+
+    this.first.getPrevious().getPrevious().setNext(this.first);
+    this.first.setPrevious(this.first.getPrevious().getPrevious());
+    last = last_last;
+    this.first = last;
+    nodosig = nodo;
+    
+
         
-        Nodo<E> firstNode = this.first;
-        this.first.setPrevious(this.first.getPrevious().getPrevious());
-        this.first.getPrevious().getPrevious().setNext(this.first);
-        this.first = this.first.getPrevious();   
-    }
+
+        //this.addFirst(lastnode.getContent());
+   }
     
     public void nextNode() {
         
