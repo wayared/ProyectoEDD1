@@ -82,7 +82,7 @@ public void clear() {
     @Override
     public boolean addLast(E element) {
         if (element == null) {
-            return false;
+            throw new IllegalArgumentException("Element cannot be null");
         }
         Nodo<E> nuevo = new Nodo<>(element);
         if (this.isEmpty()) {
@@ -90,10 +90,18 @@ public void clear() {
             nuevo.setNext(nuevo);
             this.first = nuevo;
         } else {
+            /*
             this.first.getPrevious().setNext(nuevo);
             this.first.setPrevious(nuevo);
             nuevo.setPrevious(this.first.getPrevious());
             nuevo.setNext(this.first);
+            
+            */
+            nuevo.setPrevious(this.first.getPrevious());
+            nuevo.setNext(this.first);
+            this.first.getPrevious().setNext(nuevo);
+            this.first.setPrevious(nuevo);
+            
             
         }
         return true;
@@ -171,7 +179,7 @@ public void clear() {
     }
 
     
-   public void prevNode() {
+  /* public void prevNode() {
        
      Nodo<E> nodo = this.first;
      Nodo<E> nodosig = this.first.getNext();
@@ -188,9 +196,22 @@ public void clear() {
         
 
         //this.addFirst(lastnode.getContent());
-   }
-    
-    public void nextNode() {
+   }*/
+    /*
+    public LinkedList<E> prevNode(){
+        LinkedList<E> newList = new LinkedList<>();
+        Nodo<E> last = this.first.getPrevious();
+        Nodo<E> viajero;
+        
+        for(viajero=this.first ; viajero !=this.first.getPrevious();viajero = viajero.getNext()){
+        newList.addLast(viajero.getContent());
+        }
+        newList.addFirst(last.getContent());
+        
+        return newList;
+    } */
+            
+     /*   public void nextNode() {
         
         Nodo<E> firstNode = this.first;
         this.first.getNext().setPrevious(this.first.getPrevious());
@@ -198,7 +219,16 @@ public void clear() {
         this.first = this.first.getNext();
         this.addLast(firstNode.getContent());
        
+    }*/
+    
+     public void prevNode() {
+        this.first = this.first.getPrevious();
     }
+
+    public void nextNode() {
+        this.first = this.first.getNext();
+    }
+
     
     public E getNthFromLast(int n) {
 

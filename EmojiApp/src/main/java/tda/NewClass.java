@@ -25,11 +25,13 @@ public class NewClass {
         System.out.println(list);
         list.nextNode();
         System.out.println(list);
+         list.prevNode();
+        System.out.println(list);
+         list.prevNode();
+        System.out.println(list);
         
-        list.prevNode();
-        System.out.println(list);
-        list.prevNode();
-        System.out.println(list);
+        
+        
        
         
         
