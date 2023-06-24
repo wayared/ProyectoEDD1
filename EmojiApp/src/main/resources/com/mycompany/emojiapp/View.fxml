@@ -20,7 +20,7 @@
                <children>
                   <Label prefHeight="73.0" prefWidth="826.0" text="EmojiApp">
                      <padding>
-                        <Insets left="280.0" />
+                        <Insets left="290.0" />
                      </padding>
                      <font>
                         <Font size="29.0" />
@@ -37,17 +37,27 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="230.0" />
+                        <Insets left="170.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin></Button>
+                  <Button fx:id="EyeBrowsButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Cejas">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
                   <Button fx:id="MouthButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Boca">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin></Button>
+                  <Button fx:id="AccessoriesButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Accesorios">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="656.0">

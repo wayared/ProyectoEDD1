@@ -5,8 +5,6 @@
 package tda;
 
 import java.util.Iterator;
-import static javafx.application.Application.launch;
-import javafx.scene.control.Button;
 
 /**
  *

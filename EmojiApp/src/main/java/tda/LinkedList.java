@@ -180,9 +180,6 @@ public void clear() {
         this.first = this.first.getNext();
         this.addLast(firstNode.getContent());
        
-        
-       
-
     }
     
     public E getNthFromLast(int n) {
