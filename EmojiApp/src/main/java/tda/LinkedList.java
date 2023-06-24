@@ -170,7 +170,14 @@ public void clear() {
 
     }
 
-   
+   public void prevNode() {
+        
+        Nodo<E> firstNode = this.first;
+        this.first.setPrevious(this.first.getPrevious().getPrevious());
+        this.first.getPrevious().getPrevious().setNext(this.first);
+        this.addFirst(firstNode.getContent());
+       
+    }
     
     public void nextNode() {
         
