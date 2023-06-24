@@ -24,7 +24,7 @@ public class NewClass {
         System.out.println(list);
         list.nextNode();
         System.out.println(list);
-        list.nextNode();
+        list.prevNode();
         System.out.println(list);
         
         Iterator<String> it = list.iterator();

@@ -175,8 +175,7 @@ public void clear() {
         Nodo<E> firstNode = this.first;
         this.first.setPrevious(this.first.getPrevious().getPrevious());
         this.first.getPrevious().getPrevious().setNext(this.first);
-        this.addFirst(firstNode.getContent());
-       
+        this.first = this.first.getPrevious();   
     }
     
     public void nextNode() {
