@@ -65,6 +65,8 @@ public class ViewController implements Initializable {
     @FXML
     private Button EyeButton;
     @FXML
+    private Button EyeBrowsButton;
+    @FXML
     private Button MouthButton;
     @FXML
     private Button AccessoriesButton;
@@ -200,7 +202,28 @@ public class ViewController implements Initializable {
                 ex.printStackTrace();
             }});
           
-          
+          EyeBrowsButton.setOnMouseClicked((MouseEvent e) ->{
+               imagenes.clear();
+        DirectoryStream<Path> stream = null;
+            try {
+                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        for(Path file: stream ){
+            try {
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" +file.getFileName()),50,50,true,false));
+                //System.out.println(file.getFileName());
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        }
+         
+         try {
+                colocarImagenBotones();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }});
     }
     
      private void cargarImagenesInicio() throws FileNotFoundException, IOException{    
