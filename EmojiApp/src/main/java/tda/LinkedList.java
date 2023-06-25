@@ -93,7 +93,7 @@ public void clear() {
             /*
             this.first.getPrevious().setNext(nuevo);
             this.first.setPrevious(nuevo);
-            nuevo.setPrevious(this.first.getPrevious());
+            nuevo.setPrevious(this.first.getPrevious());  mala implementacion
             nuevo.setNext(this.first);
             
             */

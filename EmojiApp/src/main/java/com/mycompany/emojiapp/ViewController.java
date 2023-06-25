@@ -16,8 +16,10 @@ import static java.util.Arrays.stream;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import static java.util.stream.StreamSupport.stream;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import tda.*;
 
 /**
@@ -44,6 +47,7 @@ public class ViewController implements Initializable {
         
         try {
             // TODO 
+            cargarBotones();
             cargarImagenesInicio();
             colocarImagenBotones();
             
@@ -58,7 +62,7 @@ public class ViewController implements Initializable {
     private HBox hbox;
     
     @FXML
-    private Pane panel;
+    private StackPane panel;
     
     @FXML
     private Button FaceButton;
@@ -226,7 +230,8 @@ public class ViewController implements Initializable {
                 colocarImagenBotones();
             } catch (IOException ex) {
                 ex.printStackTrace();
-            }});
+            }  
+          });
     }
     
      private void cargarImagenesInicio() throws FileNotFoundException, IOException{    
@@ -280,5 +285,26 @@ public class ViewController implements Initializable {
        });
                 }
     
+    @FXML
+    private void cargarBotones() throws FileNotFoundException{
+                 
+        prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
+        nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
+    }
+    
+    @FXML
+    private void mostrarImagen(MouseEvent event){
+ 
+                
+        option1.setOnMouseClicked((MouseEvent e) ->{
+            ImageView imagen = (ImageView)option1.getGraphic();
+            ImageView imagen2 = new ImageView(imagen.getImage());
+            ImageView img = new ImageView(imagen2.getImage());
+            img.setFitHeight(120);
+            img.setFitWidth(120);         
+            panel.getChildren().add(img);
+            
+       });
+    }
     
 }

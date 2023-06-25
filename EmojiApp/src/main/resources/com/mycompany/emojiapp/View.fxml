@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -14,7 +15,7 @@
         <URL value="@/styles/view.css" />
     </stylesheets>
    <children>
-      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0" style="-fx-background-color: rgb(0, 0, 0);">
+      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0" style="-fx-background-color: rgb(1 1, 1);">
          <children>
             <HBox prefHeight="56.0" prefWidth="645.0">
                <children>
@@ -32,6 +33,13 @@
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <children>
+                  <StackPane fx:id="panel" prefHeight="150.0" prefWidth="200.0">
+                     <HBox.margin>
+                        <Insets left="250.0" />
+                     </HBox.margin>
+                  </StackPane>
+               </children>
             </HBox>
             <HBox prefHeight="70.0" prefWidth="600.0">
                <children>
@@ -62,12 +70,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="656.0">
                <children>
-                  <Button fx:id="prevButton" mnemonicParsing="false" onMouseClicked="#prevElement" prefHeight="55.0" prefWidth="55.0" text="Prev">
+                  <Button fx:id="prevButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#prevElement" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0, 0, 0);">
                      <HBox.margin>
                         <Insets left="30.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option1" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
@@ -102,7 +110,7 @@
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="nextButton" mnemonicParsing="false" onMouseClicked="#nextElement" prefHeight="55.0" prefWidth="55.0" text="Next">
+                  <Button fx:id="nextButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#nextElement" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0, 0, 0);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
