@@ -36,7 +36,7 @@
                <children>
                   <StackPane fx:id="panel" prefHeight="150.0" prefWidth="200.0">
                      <HBox.margin>
-                        <Insets left="250.0" />
+                        <Insets left="260.0" />
                      </HBox.margin>
                   </StackPane>
                </children>
