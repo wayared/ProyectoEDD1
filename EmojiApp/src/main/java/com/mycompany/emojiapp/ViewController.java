@@ -4,6 +4,7 @@
  */
 package com.mycompany.emojiapp;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import static java.util.Arrays.stream;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import static java.util.stream.StreamSupport.stream;
@@ -28,6 +30,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import tda.*;
 
 /**
@@ -95,6 +99,10 @@ public class ViewController implements Initializable {
     
     @FXML
     private Button nextButton;
+    @FXML
+    private Button loadImg;
+    @FXML
+    private File file;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -290,6 +298,8 @@ public class ViewController implements Initializable {
                  
         prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
         nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
+        loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));
+        
     }
     
     @FXML
@@ -307,4 +317,32 @@ public class ViewController implements Initializable {
        });
     }
     
+    @FXML
+    private void uploadImg(MouseEvent event){
+//        int resultado;
+//        
+//        Buscarimg buscador = new Buscarimg();
+//        
+//        FileNameExtensionFilter formato = new FileNameExtensionFilter("JPG, PNG y GIF", "jpg", "png", "gif");
+//        
+//        buscador.JFCImg.setFileFilter(formato);
+//        resultado = buscador.JFCImg.showOpenDialog(null);
+//        if(JFileChooser.APPROVE_OPTION == resultado){
+//            file = Buscarimg.JFCImg.getSelectedFile();
+//                
+//            
+//        }
+    String path = "";
+    JFileChooser selectFile = new JFileChooser();
+    FileNameExtensionFilter formato = new FileNameExtensionFilter("JPG, PNG y GIF", "jpg", "png", "gif");
+        selectFile.setFileFilter(formato);
+        int respuesta = selectFile.showOpenDialog(null);
+        
+        if(respuesta == selectFile.APPROVE_OPTION){
+            path = selectFile.getSelectedFile().getPath();
+            
+            
+        }
+        
+    }
 }

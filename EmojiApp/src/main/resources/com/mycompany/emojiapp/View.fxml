@@ -15,7 +15,7 @@
         <URL value="@/styles/view.css" />
     </stylesheets>
    <children>
-      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0" style="-fx-background-color: rgb(1 1, 1);">
+      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0" style="-fx-background-color: rgb(0,0, 0);">
          <children>
             <HBox prefHeight="56.0" prefWidth="645.0">
                <children>
@@ -45,7 +45,7 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="170.0" />
+                        <Insets left="150.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
@@ -62,6 +62,11 @@
                         <Insets left="30.0" />
                      </HBox.margin></Button>
                   <Button fx:id="AccessoriesButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Accesorios">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="34.0" prefWidth="30.0">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
