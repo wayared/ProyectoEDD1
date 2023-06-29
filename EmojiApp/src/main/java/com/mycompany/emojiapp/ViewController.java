@@ -26,7 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import java.nio.file.StandardCopyOption;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -340,8 +340,14 @@ public class ViewController implements Initializable {
         
         if(respuesta == selectFile.APPROVE_OPTION){
             path = selectFile.getSelectedFile().getPath();
-            
-            
+            Path origen = Path.of(path);
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\face1.png");
+            try{
+            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("archivo copiado exitosamente");
+            }catch(IOException e){
+                System.out.println("error al copiar archivo" + e.getMessage());
+            }
         }
         
     }
