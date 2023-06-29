@@ -40,6 +40,12 @@ import tda.*;
  * @author wayar
  */
 public class ViewController implements Initializable {
+    
+    boolean faceGroup = true;
+    boolean EyeGroup;
+    boolean EyeBrowsGroup;
+    boolean accesoriesGroup;
+    boolean mouthGroup;
 
     /**
      * Initializes the controller class.
@@ -54,6 +60,7 @@ public class ViewController implements Initializable {
             cargarBotones();
             cargarImagenesInicio();
             colocarImagenBotones();
+            ActionButton();
             
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -101,8 +108,6 @@ public class ViewController implements Initializable {
     private Button nextButton;
     @FXML
     private Button loadImg;
-    @FXML
-    private File file;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -295,10 +300,12 @@ public class ViewController implements Initializable {
     
     @FXML
     private void cargarBotones() throws FileNotFoundException{
-                 
+        // AGREGAMOS ICONOS A LOS BOTONES DE BACK , NEXT Y SUBIR IMAGEN
         prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
         nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
         loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));
+        
+        
         
     }
     
@@ -317,31 +324,37 @@ public class ViewController implements Initializable {
        });
     }
     
+    
+    // METODO PARA SUBIR UNA AGREGAR UNA IMAGEN A LA LISTA 
     @FXML
-    private void uploadImg(MouseEvent event){
-//        int resultado;
-//        
-//        Buscarimg buscador = new Buscarimg();
-//        
-//        FileNameExtensionFilter formato = new FileNameExtensionFilter("JPG, PNG y GIF", "jpg", "png", "gif");
-//        
-//        buscador.JFCImg.setFileFilter(formato);
-//        resultado = buscador.JFCImg.showOpenDialog(null);
-//        if(JFileChooser.APPROVE_OPTION == resultado){
-//            file = Buscarimg.JFCImg.getSelectedFile();
-//                
-//            
-//        }
+    private void uploadImg(MouseEvent event){ 
     String path = "";
-    JFileChooser selectFile = new JFileChooser();
+    
+    JFileChooser selectFile = new JFileChooser(); //PARA ABRIR EL EXLORADOR Y BUSCAR NUESTRA IMAGEN
     FileNameExtensionFilter formato = new FileNameExtensionFilter("JPG, PNG y GIF", "jpg", "png", "gif");
-        selectFile.setFileFilter(formato);
+        selectFile.setFileFilter(formato); // AGREGAMOS LOS FORMATOS PERMITIDOS
         int respuesta = selectFile.showOpenDialog(null);
         
-        if(respuesta == selectFile.APPROVE_OPTION){
+        if(respuesta == selectFile.APPROVE_OPTION &&  faceGroup){  // APPROVE_OPTION = BOTON ABRIR
+                                                               // SI EL BOTON DE ABRIR ES PRECIONADO Y EL 
+                                                               //GRUPO DE ELEMENTOS FUE PRESIONADO
+            path = selectFile.getSelectedFile().getPath();    // OBTIENE LA RUTA DEL ARCHIVO A AGREGAR
+            String fileName = selectFile.getSelectedFile().getName(); // OBTENEMOS EL NOMBRE DEL ARCHIVOSELECCIONADO
+            Path origen = Path.of(path);        
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\" + fileName);
+            try{                    // DAMOS UNA RUTA DESTINO CON EL RESECTIVO NOMBRE DEL ARCHIVO SELECCIONADO
+            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING); // COPIAMOS EL ARCHIVO EN LA RUTA DESTINO
+                System.out.println("archivo copiado exitosamente");
+            }catch(IOException e){
+                System.out.println("error al copiar archivo" + e.getMessage());
+            }
+        }
+        
+        if(respuesta == selectFile.APPROVE_OPTION &&  EyeGroup){
             path = selectFile.getSelectedFile().getPath();
+            String fileName = selectFile.getSelectedFile().getName();
             Path origen = Path.of(path);
-            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\face1.png");
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("archivo copiado exitosamente");
@@ -350,5 +363,79 @@ public class ViewController implements Initializable {
             }
         }
         
+        if(respuesta == selectFile.APPROVE_OPTION &&  EyeBrowsGroup){
+            path = selectFile.getSelectedFile().getPath();
+            String fileName = selectFile.getSelectedFile().getName();
+            Path origen = Path.of(path);
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + fileName);
+            try{
+            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("archivo copiado exitosamente");
+            }catch(IOException e){
+                System.out.println("error al copiar archivo" + e.getMessage());
+            }
+        }
+        
+        if(respuesta == selectFile.APPROVE_OPTION &&  mouthGroup){
+            path = selectFile.getSelectedFile().getPath();
+            String fileName = selectFile.getSelectedFile().getName();
+            Path origen = Path.of(path);
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\mouth\\" + fileName);
+            try{
+            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("archivo copiado exitosamente");
+            }catch(IOException e){
+                System.out.println("error al copiar archivo" + e.getMessage());
+            }
+        }
+        
+        if(respuesta == selectFile.APPROVE_OPTION &&  accesoriesGroup){
+            path = selectFile.getSelectedFile().getPath();
+            String fileName = selectFile.getSelectedFile().getName();
+            Path origen = Path.of(path);
+            Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + fileName);
+            try{
+            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("archivo copiado exitosamente");
+            }catch(IOException e){
+                System.out.println("error al copiar archivo" + e.getMessage());
+            }
+        }
+    
     }
+    
+    private void ActionButton(){   
+        
+        FaceButton.setOnAction(e ->{ faceGroup =true;  //CONTROL DE GRUPO DE ELEMENTOS
+        EyeGroup=false;
+        EyeBrowsGroup=false;
+        accesoriesGroup=false;
+        mouthGroup=false;});
+        
+        EyeButton.setOnAction(e ->{ faceGroup =false;
+        EyeGroup=true;
+        EyeBrowsGroup=false;
+        accesoriesGroup=false;
+        mouthGroup=false;});
+        
+        EyeBrowsButton.setOnAction(e ->{ faceGroup =false;
+        EyeGroup=false;
+        EyeBrowsGroup=true;
+        accesoriesGroup=false;
+        mouthGroup=false;});
+        
+        AccessoriesButton.setOnAction(e ->{ faceGroup = false;
+        EyeGroup=false;
+        EyeBrowsGroup=false;
+        accesoriesGroup=true;
+        mouthGroup=false;});
+        
+        MouthButton.setOnAction(e ->{ faceGroup = false;
+        EyeGroup=false;
+        EyeBrowsGroup=false;
+        accesoriesGroup=false;
+        mouthGroup=true;});
+                                       
+    }
+    
 }
