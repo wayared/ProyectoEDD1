@@ -117,7 +117,7 @@ public class ViewController implements Initializable {
 
     
     public LinkedList<Button>  listaBotones(){
-        LinkedList<Button> lista = new LinkedList<>();
+        LinkedList<Button> lista = new LinkedList<>();  // CREO UNA LISTA CON LOS BOTONES DE CADA OPCON A ELEGIR
         lista.addLast(option1);
         lista.addLast(option2);
         lista.addLast(option3);
@@ -132,16 +132,16 @@ public class ViewController implements Initializable {
     @FXML
     private void cargarImagenes(MouseEvent event) throws FileNotFoundException, IOException{    
 
-        FaceButton.setOnMouseClicked((MouseEvent e) ->{
-                    imagenes.clear();
-        DirectoryStream<Path> stream = null;
-            try {
+        FaceButton.setOnMouseClicked((MouseEvent e) ->{  // AL PRESIONAR EL BOTON DE UN GRUPO DE ELEMENTOS
+                    imagenes.clear();       // ELIMINO TODAS LAS IMAGENES DE CADA BOTON
+        DirectoryStream<Path> stream = null; 
+            try {                               //CARGO UNA CARPETA PARA HACER UNA LECTURA
                 stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-        for(Path file: stream ){
-            try {
+        for(Path file: stream ){    // POR CADA ARCHIVO EN LA CARPETA LEIDA
+            try {                   // ANIADO LASIMAGENES A UNA COLECCION
                 imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
@@ -149,7 +149,7 @@ public class ViewController implements Initializable {
             }
         }
             try {
-                colocarImagenBotones();
+                colocarImagenBotones(); //INVOCO AL METODO PARA COLOCAR IMAGEN A CADA BOTON 
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -249,20 +249,20 @@ public class ViewController implements Initializable {
           });
     }
     
-     private void cargarImagenesInicio() throws FileNotFoundException, IOException{    
+     private void cargarImagenesInicio() throws FileNotFoundException, IOException{ //CARGA IAMGENES AL INICIALIZAR EL SISTEMA    
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
         for(Path file: stream ){
             imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
-            //System.out.println(file.getFileName());  
+      
         }
      }
     
     private void colocarImagenBotones() throws FileNotFoundException, IOException{
         
-         Iterator<Button> it = listaBotones().iterator();
+         Iterator<Button> it = listaBotones().iterator();  
          Iterator<Image> it2 = imagenes.iterator();
-        while(it.hasNext()){  
-           it.next().setGraphic(new ImageView(it2.next()));
+        while(it.hasNext()){  //ITERO SOBRE LA LISTA DE BOTONES
+           it.next().setGraphic(new ImageView(it2.next())); // SETEO UNA IMAGEN A CADA BOTON
            
         }
           
@@ -272,11 +272,11 @@ public class ViewController implements Initializable {
     private void prevElement(MouseEvent event){
         
         prevButton.setOnMouseClicked((MouseEvent e) ->{
-        imagenes.prevNode();
-        Iterator<Button> listaBotones = listaBotones().iterator();
+        imagenes.prevNode(); // INVOCO A LA FUNCION QUE DESPLAZA LOS ELEMENTOS A LA DERECHA
+        Iterator<Button> listaBotones = listaBotones().iterator();  
         Iterator<Image> images = imagenes.iterator();
-         while(listaBotones.hasNext()){ 
-             listaBotones.next().setGraphic(new ImageView(images.next()));
+         while(listaBotones.hasNext()){   //ITERO SOBRE LA LISTA DE BOTONES
+             listaBotones.next().setGraphic(new ImageView(images.next())); // CARGO UNA IMAGEN PARA CADA BOTON 
              
          }
            
@@ -288,15 +288,14 @@ public class ViewController implements Initializable {
     private void nextElement(MouseEvent event){
         
         nextButton.setOnMouseClicked((MouseEvent e) ->{
-        imagenes.nextNode();
+        imagenes.nextNode();                            
         Iterator<Button> listaBotones = listaBotones().iterator();
         Iterator<Image> images = imagenes.iterator();
          while(listaBotones.hasNext()){ 
              listaBotones.next().setGraphic(new ImageView(images.next()));
              
          }
-           
-           
+                  
        });
                 }
     
