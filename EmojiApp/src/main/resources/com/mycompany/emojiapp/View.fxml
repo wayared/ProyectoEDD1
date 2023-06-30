@@ -21,7 +21,7 @@
                <children>
                   <Label prefHeight="73.0" prefWidth="826.0" text="EmojiApp" textFill="#c3c3c3">
                      <padding>
-                        <Insets left="290.0" />
+                        <Insets left="305.0" />
                      </padding>
                      <font>
                         <Font name="Franklin Gothic Medium" size="29.0" />
@@ -45,28 +45,43 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="150.0" />
+                        <Insets left="135.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
                      <HBox.margin>
                         <Insets left="30.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="12.0" />
+                     </font></Button>
                   <Button fx:id="EyeBrowsButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Cejas">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="12.0" />
+                     </font>
                   </Button>
                   <Button fx:id="MouthButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Boca">
                      <HBox.margin>
                         <Insets left="30.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="12.0" />
+                     </font></Button>
                   <Button fx:id="AccessoriesButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Accesorios">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Medium Cond" size="12.0" />
+                     </font>
                   </Button>
-                  <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="34.0" prefWidth="30.0">
+                  <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="25.0" prefWidth="26.0">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
@@ -77,7 +92,7 @@
                <children>
                   <Button fx:id="prevButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#prevElement" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0, 0, 0);">
                      <HBox.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="26.0" top="30.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">

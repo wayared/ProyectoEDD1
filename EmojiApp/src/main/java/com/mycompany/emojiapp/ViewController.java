@@ -276,13 +276,11 @@ public class ViewController implements Initializable {
         Iterator<Button> listaBotones = listaBotones().iterator();  
         Iterator<Image> images = imagenes.iterator();
          while(listaBotones.hasNext()){   //ITERO SOBRE LA LISTA DE BOTONES
-             listaBotones.next().setGraphic(new ImageView(images.next())); // CARGO UNA IMAGEN PARA CADA BOTON 
-             
+             listaBotones.next().setGraphic(new ImageView(images.next())); // CARGO UNA IMAGEN PARA CADA BOTON             
          }
-           
-           
+      
        });
-                }
+    }
     
     @FXML
     private void nextElement(MouseEvent event){
@@ -297,22 +295,18 @@ public class ViewController implements Initializable {
          }
                   
        });
-                }
+    }
     
     @FXML
     private void cargarBotones() throws FileNotFoundException{
         // AGREGAMOS ICONOS A LOS BOTONES DE BACK , NEXT Y SUBIR IMAGEN
         prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
         nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
-        loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));
-        
-        
-        
+        loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));         
     }
     
     @FXML
     private void mostrarImagen(MouseEvent event){
- 
                 
         option1.setOnMouseClicked((MouseEvent e) ->{
             ImageView imagen = (ImageView)option1.getGraphic();
@@ -324,8 +318,7 @@ public class ViewController implements Initializable {
             
        });
     }
-    
-    
+       
     // METODO PARA SUBIR UNA AGREGAR UNA IMAGEN A LA LISTA 
     @FXML
     private void uploadImg(MouseEvent event){ 
