@@ -48,6 +48,7 @@ public class ViewController implements Initializable {
     boolean EyeBrowsGroup;
     boolean accesoriesGroup;
     boolean mouthGroup;
+    int index = 0;
 
     /**
      * Initializes the controller class.
@@ -314,8 +315,7 @@ public class ViewController implements Initializable {
             ImageView img = new ImageView(imagen2.getImage());
             img.setFitHeight(120);
             img.setFitWidth(120);         
-            panel.getChildren().add(img);
-            
+            panel.getChildren().add(index,img);           
        });
     }
        
@@ -402,19 +402,19 @@ public class ViewController implements Initializable {
     private void ActionButton(){   
         //CONTROL DE GRUPO DE ELEMENTOS
         FaceButton.setOnAction(e ->{ faceGroup =true;  EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=false;});
+        mouthGroup=false; index = 0;});
         
         EyeButton.setOnAction(e ->{ faceGroup =false; EyeGroup=true; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=false;});
+        mouthGroup=false; index = 1;});
         
         EyeBrowsButton.setOnAction(e ->{ faceGroup =false; EyeGroup=false; EyeBrowsGroup=true; accesoriesGroup=false;
-        mouthGroup=false;});
+        mouthGroup=false; index = 2; });
         
         AccessoriesButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=true;
-        mouthGroup=false;});
+        mouthGroup=false; index = 3;});
         
         MouthButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=true;});
+        mouthGroup=true; index = 4;});
                                        
     }
     
