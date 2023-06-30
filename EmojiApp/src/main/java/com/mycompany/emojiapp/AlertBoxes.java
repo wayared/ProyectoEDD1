@@ -1,4 +1,4 @@
-package com.mycompany.proyectosegundoparcial_poo_g3.modelo;
+package com.mycompany.emojiapp;
 
 import java.util.Optional;
 

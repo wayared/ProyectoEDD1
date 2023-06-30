@@ -345,9 +345,9 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\" + fileName);
             try{                    // DAMOS UNA RUTA DESTINO CON EL RESECTIVO NOMBRE DEL ARCHIVO SELECCIONADO
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING); // COPIAMOS EL ARCHIVO EN LA RUTA DESTINO
-                System.out.println("archivo copiado exitosamente");
+                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
-                System.out.println("error al copiar archivo" + e.getMessage());
+                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
         }
         
@@ -358,9 +358,10 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("archivo copiado exitosamente");
+            colocarImagenBotones(); 
+                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
-                System.out.println("error al copiar archivo" + e.getMessage());
+                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
         }
         
@@ -371,9 +372,9 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("archivo copiado exitosamente");
+                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
-                System.out.println("error al copiar archivo" + e.getMessage());
+                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
         }
         
@@ -384,9 +385,9 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\mouth\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("archivo copiado exitosamente");
+                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
-                System.out.println("error al copiar archivo" + e.getMessage());
+                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
         }
         
@@ -397,19 +398,12 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("archivo copiado exitosamente");
+             
+                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
-                System.out.println("error al copiar archivo" + e.getMessage());
+               AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
         }
-        
-        try {
-            cargarImagenesInicio();  //  ACTUALIZO LAS CARPETAS
-            colocarImagenBotones(); 
-        } catch (IOException ex) {
-            Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
     }
     
     private void ActionButton(){   
