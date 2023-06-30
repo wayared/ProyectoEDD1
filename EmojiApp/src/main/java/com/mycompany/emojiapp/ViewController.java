@@ -27,6 +27,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.nio.file.StandardCopyOption;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -401,39 +403,30 @@ public class ViewController implements Initializable {
                 System.out.println("error al copiar archivo" + e.getMessage());
             }
         }
+        
+        try {
+            cargarImagenesInicio();  //  ACTUALIZO LAS CARPETAS
+        } catch (IOException ex) {
+            Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
     }
     
     private void ActionButton(){   
-        
-        FaceButton.setOnAction(e ->{ faceGroup =true;  //CONTROL DE GRUPO DE ELEMENTOS
-        EyeGroup=false;
-        EyeBrowsGroup=false;
-        accesoriesGroup=false;
+        //CONTROL DE GRUPO DE ELEMENTOS
+        FaceButton.setOnAction(e ->{ faceGroup =true;  EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
         mouthGroup=false;});
         
-        EyeButton.setOnAction(e ->{ faceGroup =false;
-        EyeGroup=true;
-        EyeBrowsGroup=false;
-        accesoriesGroup=false;
+        EyeButton.setOnAction(e ->{ faceGroup =false; EyeGroup=true; EyeBrowsGroup=false; accesoriesGroup=false;
         mouthGroup=false;});
         
-        EyeBrowsButton.setOnAction(e ->{ faceGroup =false;
-        EyeGroup=false;
-        EyeBrowsGroup=true;
-        accesoriesGroup=false;
+        EyeBrowsButton.setOnAction(e ->{ faceGroup =false; EyeGroup=false; EyeBrowsGroup=true; accesoriesGroup=false;
         mouthGroup=false;});
         
-        AccessoriesButton.setOnAction(e ->{ faceGroup = false;
-        EyeGroup=false;
-        EyeBrowsGroup=false;
-        accesoriesGroup=true;
+        AccessoriesButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=true;
         mouthGroup=false;});
         
-        MouthButton.setOnAction(e ->{ faceGroup = false;
-        EyeGroup=false;
-        EyeBrowsGroup=false;
-        accesoriesGroup=false;
+        MouthButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
         mouthGroup=true;});
                                        
     }
