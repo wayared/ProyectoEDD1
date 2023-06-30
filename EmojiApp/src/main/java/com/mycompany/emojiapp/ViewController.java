@@ -405,6 +405,7 @@ public class ViewController implements Initializable {
         
         try {
             cargarImagenesInicio();  //  ACTUALIZO LAS CARPETAS
+            colocarImagenBotones(); 
         } catch (IOException ex) {
             Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
