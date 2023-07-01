@@ -365,14 +365,7 @@ public class ViewController implements Initializable {
             String fileName = selectFile.getSelectedFile().getName(); // OBTENEMOS EL NOMBRE DEL ARCHIVOSELECCIONADO
             Path origen = Path.of(path);        
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\" + fileName);
-            try{                    // DAMOS UNA RUTA DESTINO CON EL RESPECTIVO NOMBRE DEL ARCHIVO SELECCIONADO
-            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING); // COPIAMOS EL ARCHIVO EN LA RUTA DESTINO
-            cargarImagenesInicio();
-            colocarImagenBotones();  //ACTUALIZO/RECARGO LOS BOTONES
-                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
-            }catch(IOException e){
-                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
-            }
+            copyFile(origen,destino);
         }
         
         if(respuesta == selectFile.APPROVE_OPTION &&  EyeGroup){
@@ -388,14 +381,7 @@ public class ViewController implements Initializable {
             String fileName = selectFile.getSelectedFile().getName();
             Path origen = Path.of(path);
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + fileName);
-            try{
-            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-            cargarImagenesInicio();
-            colocarImagenBotones(); 
-                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
-            }catch(IOException e){
-                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
-            }
+            copyFile(origen,destino);
         }
         
         if(respuesta == selectFile.APPROVE_OPTION &&  mouthGroup){
@@ -403,14 +389,7 @@ public class ViewController implements Initializable {
             String fileName = selectFile.getSelectedFile().getName();
             Path origen = Path.of(path);
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\mouth\\" + fileName);
-            try{
-            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-            cargarImagenesInicio();
-            colocarImagenBotones(); 
-                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
-            }catch(IOException e){
-                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
-            }
+            copyFile(origen,destino);
         }
         
         if(respuesta == selectFile.APPROVE_OPTION &&  accesoriesGroup){
@@ -418,14 +397,7 @@ public class ViewController implements Initializable {
             String fileName = selectFile.getSelectedFile().getName();
             Path origen = Path.of(path);
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + fileName);
-            try{
-            Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-            cargarImagenesInicio();
-            colocarImagenBotones(); 
-                AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
-            }catch(IOException e){
-               AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
-            }
+            copyFile(origen,destino);
         }
     }
     
