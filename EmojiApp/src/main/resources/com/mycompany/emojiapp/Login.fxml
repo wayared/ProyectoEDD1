@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="447.0" prefWidth="720.0" styleClass="mainFxmlClass" stylesheets="@../../../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="447.0" prefWidth="720.0" styleClass="mainFxmlClass" stylesheets="@../../../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.emojiapp.LoginController">
    <children>
       <VBox prefHeight="65.0" prefWidth="720.0">
          <children>
@@ -62,7 +62,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="720.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="116.0" text="Registrarse">
+            <Button fx:id="registerButton" mnemonicParsing="false" onMouseClicked="#registrarUsuario" prefHeight="38.0" prefWidth="116.0" text="Registrarse">
                <font>
                   <Font size="17.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Insets left="230.0" top="35.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" text="Ingresar">
+            <Button mnemonicParsing="false" onMouseClicked="#registrarUsuario" prefHeight="34.0" prefWidth="101.0" text="Ingresar">
                <HBox.margin>
                   <Insets left="50.0" top="35.0" />
                </HBox.margin>

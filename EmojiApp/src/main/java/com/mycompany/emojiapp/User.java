@@ -48,8 +48,6 @@ public class User {
         return usuarios;
     }
     
-    
-    
     public static void registrarUsuario(String usuario, String contraseña) throws FileNotFoundException, IOException{
         if(usuario.isEmpty() || contraseña.isEmpty()){
             throw new NullPointerException();
