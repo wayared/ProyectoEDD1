@@ -143,7 +143,7 @@ public class ViewController implements Initializable {
             }
         for(Path file: stream ){    // POR CADA ARCHIVO EN LA CARPETA LEIDA
             try {                   // ANIADO LASIMAGENES A UNA COLECCION
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" + file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
@@ -166,7 +166,7 @@ public class ViewController implements Initializable {
             }
         for(Path file: stream ){
             try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" +file.getFileName()),50,50,true,false));
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
@@ -189,7 +189,7 @@ public class ViewController implements Initializable {
             }
         for(Path file: stream ){
             try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\mouth\\" +file.getFileName()),50,50,true,false));
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\mouth\\" + file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
@@ -212,7 +212,7 @@ public class ViewController implements Initializable {
             }
         for(Path file: stream ){
             try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\accessories\\" +file.getFileName()),50,50,true,false));
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
@@ -235,7 +235,7 @@ public class ViewController implements Initializable {
             }
         for(Path file: stream ){
             try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" +file.getFileName()),50,50,true,false));
+                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + file.getFileName()),50,50,true,false));
                 //System.out.println(file.getFileName());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
@@ -250,12 +250,41 @@ public class ViewController implements Initializable {
           });
     }
     
-     private void cargarImagenesInicio() throws FileNotFoundException, IOException{ //CARGA IAMGENES AL INICIALIZAR EL SISTEMA    
+     private void cargarImagenesInicio() throws FileNotFoundException, IOException{ //CARGA IAMGENES AL INICIALIZAR EL SISTEMA
+        imagenes.clear();
+        if(faceGroup){
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
         for(Path file: stream ){
-            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" +file.getFileName()),50,50,true,false));
+            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" + file.getFileName()),50,50,true,false));
       
         }
+        }else if(EyeGroup){
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyes"));
+        for(Path file: stream ){
+            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + file.getFileName()),50,50,true,false));
+      
+        }
+            
+        }else if(EyeBrowsGroup){
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
+        for(Path file: stream ){
+            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + file.getFileName()),50,50,true,false));
+      
+        }
+        }else if(mouthGroup){
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\mouth"));
+        for(Path file: stream ){
+            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\mouth\\" +file.getFileName()),50,50,true,false));
+      
+        }
+        }else if(accesoriesGroup){
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\accessories"));
+        for(Path file: stream ){
+            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + file.getFileName()),50,50,true,false));
+      
+        }
+        }
+        
      }
     
     private void colocarImagenBotones() throws FileNotFoundException, IOException{
@@ -338,6 +367,8 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\faces\\" + fileName);
             try{                    // DAMOS UNA RUTA DESTINO CON EL RESECTIVO NOMBRE DEL ARCHIVO SELECCIONADO
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING); // COPIAMOS EL ARCHIVO EN LA RUTA DESTINO
+            cargarImagenesInicio();
+            colocarImagenBotones();  //ACTUALIZO/RECARGO LOS BOTONES
                 AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
                 AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
@@ -351,6 +382,7 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+            cargarImagenesInicio();
             colocarImagenBotones(); 
                 AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
@@ -365,6 +397,8 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+            cargarImagenesInicio();
+            colocarImagenBotones(); 
                 AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
                 AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
@@ -378,6 +412,8 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\mouth\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
+            cargarImagenesInicio();
+            colocarImagenBotones(); 
                 AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
                 AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
@@ -391,7 +427,8 @@ public class ViewController implements Initializable {
             Path destino = Path.of("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + fileName);
             try{
             Files.copy(origen, destino, StandardCopyOption.REPLACE_EXISTING);
-             
+            cargarImagenesInicio();
+            colocarImagenBotones(); 
                 AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Archivo cargado exitosamente.");
             }catch(IOException e){
                AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
@@ -405,7 +442,7 @@ public class ViewController implements Initializable {
         mouthGroup=false; index = 0;});
         
         EyeButton.setOnAction(e ->{ faceGroup =false; EyeGroup=true; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=false; index = 1;});
+        mouthGroup=false; index = 0;});
         
         EyeBrowsButton.setOnAction(e ->{ faceGroup =false; EyeGroup=false; EyeBrowsGroup=true; accesoriesGroup=false;
         mouthGroup=false; index = 2; });
