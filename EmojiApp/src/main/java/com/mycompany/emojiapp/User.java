@@ -62,7 +62,8 @@ public class User {
              } catch (IOException e2) {
             System.err.println(e2.getMessage());
         }    
-                
+            
+         cargarUsuarios();
     }
     
 }
