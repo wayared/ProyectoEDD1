@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -26,6 +27,14 @@ public class LoginController implements Initializable {
     
     @FXML
     private Button registerButton;
+    
+    @FXML
+    private TextField txtUser;
+    
+    @FXML
+    private TextField txtPassword;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -50,16 +59,16 @@ public class LoginController implements Initializable {
     }
     
     
-    
-    private void aaa(MouseEvent event) throws IOException{
-         FXMLLoader loader=new FXMLLoader(App.class.getResource("UserRegister.fxml"));
-                        Parent root= loader.load();
-                        //UserRegisterController controller = loader.getController();
-                        Scene scene= new Scene(root);
-                        Stage stage= new Stage();
-                        stage.initModality(Modality.APPLICATION_MODAL);
-                        stage.setScene(scene);
-                        stage.showAndWait();
+    @FXML
+    private void loginUser(MouseEvent event) throws IOException{
+         String user = txtUser.getText();
+         String password = txtPassword.getText();
+         
+         try{
+         User.login(user,password);
+        } catch (NullPointerException n) {
+            AlertBoxes.errorAlert("Error", "Error al encontrar el usuario", "Usuario no registrado");
+        }    
         
     }
 }

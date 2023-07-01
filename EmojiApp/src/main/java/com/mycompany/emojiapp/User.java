@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import tda.List;
 
 /**
@@ -20,7 +21,7 @@ import tda.List;
 public class User {
     private String user;
     private String password;
-    
+    static ArrayList<User> users = new ArrayList<>();
     
     public User(String user, String password){
         this.user=user;
@@ -29,16 +30,16 @@ public class User {
     
     
     public static ArrayList<User> cargarUsuarios() {
-        ArrayList<User> usuarios = new ArrayList<>();
+        users.clear();                              // ELIMINO TODOS LO ELEMENTOS USUARIO DE LA LISTA DE USUARIOS PARA NO ANIADIR LOS MISMOS USUARIOS
+         ArrayList<User> usuarios = new ArrayList<>();  // CREO UNA LISTA PARA RETORNARLA
         try (BufferedReader bf = new BufferedReader(new FileReader("src\\main\\resources\\com\\mycompany\\emojiapp\\usuarios.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
-                System.out.println(linea);
                 String[] p = linea.split(",");
                 if (p.length == 6) {
                     User usuario = new User(p[0], p[1]);
                     usuarios.add(usuario);
-                    System.out.println(usuario);
+                    users.add(usuario);
                 }
             }
         } catch (IOException ex) {
@@ -62,6 +63,25 @@ public class User {
         }    
             
          cargarUsuarios();
+    }
+    
+    public static void login(String user, String password) throws IOException{
+        java.util.List<User> usuarios = users;
+        boolean bool = true;
+        System.out.println(Arrays.toString(usuarios.toArray()));
+        for (User usuario : usuarios) {
+            if (user.isEmpty() | password.isEmpty()) {
+                throw new NullPointerException();
+            }
+            
+            else if (usuario.user.equals(user) && usuario.password.equals(password)) {
+                bool = false;
+                App.setRoot("View");
+            }          
+        }
+        if (bool) {
+        throw new NullPointerException();
+        }
     }
     
 }
