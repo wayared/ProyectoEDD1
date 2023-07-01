@@ -46,12 +46,14 @@ public class UserRegisterController implements Initializable {
     @FXML
     private void registrar(MouseEvent event) {        
         try {
-            String usuario = txtUsuario.getText();
+            String usuario = txtUsuario.getText();   //OBTENER LOS DATOS DE LOS CAMPOS DE TEXTO
             String password = txtPassword.getText();
-            User.registrarUsuario(usuario,password);
-            AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Residente registrado correctamente");
-        } catch (IOException ex) {
+            User.registrarUsuario(usuario,password);  //INVOCO EL METODO DE REGISTRAR USUARIOS
+            AlertBoxes.infoAlert("Exito", "Registro Exitoso", "Residente registrado correctamente");    // ALERTBOXES PARA INFORMAR E
+        } catch (NullPointerException nu) {
             AlertBoxes.errorAlert("Error", "Error de Texto", "No puede dejar ningún campo de texto vacío");
+        } catch (IOException ex) {
+            AlertBoxes.errorAlert("Error", "Error", "Ocurrio un error al escribir el registro.");
         }
         User.cargarUsuarios();   
     }
