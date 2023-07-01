@@ -63,7 +63,8 @@ public class LoginController implements Initializable {
     private void loginUser(MouseEvent event) throws IOException{
          String user = txtUser.getText();
          String password = txtPassword.getText();
-         
+         System.out.println(user);
+         System.out.println(password);
          try{
          User.login(user,password);
         } catch (NullPointerException n) {

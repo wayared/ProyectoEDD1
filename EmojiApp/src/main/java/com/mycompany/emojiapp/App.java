@@ -16,7 +16,7 @@ public class App extends Application {
     
     @Override
     public void init(){
-   
+        User.cargarUsuarios();
     }
     
         public static Scene getScene() {

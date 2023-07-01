@@ -21,7 +21,7 @@ import tda.List;
 public class User {
     private String user;
     private String password;
-    static ArrayList<User> users = new ArrayList<>();
+   // static ArrayList<User> users = new ArrayList<>();
     
     public User(String user, String password){
         this.user=user;
@@ -30,20 +30,20 @@ public class User {
     
     
     public static ArrayList<User> cargarUsuarios() {
-        users.clear();                              // ELIMINO TODOS LO ELEMENTOS USUARIO DE LA LISTA DE USUARIOS PARA NO ANIADIR LOS MISMOS USUARIOS
+        //users.clear();                              // ELIMINO TODOS LO ELEMENTOS USUARIO DE LA LISTA DE USUARIOS PARA NO ANIADIR LOS MISMOS USUARIOS
          ArrayList<User> usuarios = new ArrayList<>();  // CREO UNA LISTA PARA RETORNARLA
         try (BufferedReader bf = new BufferedReader(new FileReader("src\\main\\resources\\com\\mycompany\\emojiapp\\usuarios.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
                 String[] p = linea.split(",");
-                if (p.length == 6) {
+                if (p.length == 2) {
                     User usuario = new User(p[0], p[1]);
                     usuarios.add(usuario);
-                    users.add(usuario);
                 }
             }
         } catch (IOException ex) {
             System.out.println("no se pudo cargar la informacion de los usuarios");
+            
             ex.printStackTrace();
         }
         return usuarios;
@@ -66,14 +66,12 @@ public class User {
     }
     
     public static void login(String user, String password) throws IOException{
-        java.util.List<User> usuarios = users;
+        ArrayList<User> usuarios = cargarUsuarios();
         boolean bool = true;
-        System.out.println(Arrays.toString(usuarios.toArray()));
         for (User usuario : usuarios) {
             if (user.isEmpty() | password.isEmpty()) {
                 throw new NullPointerException();
             }
-            
             else if (usuario.user.equals(user) && usuario.password.equals(password)) {
                 bool = false;
                 App.setRoot("View");
