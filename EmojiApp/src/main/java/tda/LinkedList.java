@@ -90,18 +90,10 @@ public void clear() {
             nuevo.setNext(nuevo);
             this.first = nuevo;
         } else {
-            /*
-            this.first.getPrevious().setNext(nuevo);
-            this.first.setPrevious(nuevo);
-            nuevo.setPrevious(this.first.getPrevious());  mala implementacion
-            nuevo.setNext(this.first);
-            
-            */
             nuevo.setPrevious(this.first.getPrevious());
             nuevo.setNext(this.first);
             this.first.getPrevious().setNext(nuevo);
             this.first.setPrevious(nuevo);
-            
             
         }
         return true;
