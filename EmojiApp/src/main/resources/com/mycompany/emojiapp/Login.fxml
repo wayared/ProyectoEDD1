@@ -54,7 +54,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <PasswordField prefHeight="33.0" prefWidth="150.0">
+            <PasswordField fx:id="txtPassword" prefHeight="33.0" prefWidth="150.0">
                <HBox.margin>
                   <Insets left="40.0" top="45.0" />
                </HBox.margin>
