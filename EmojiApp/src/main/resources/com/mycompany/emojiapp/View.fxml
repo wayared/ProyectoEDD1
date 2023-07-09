@@ -103,7 +103,7 @@
                         <Insets left="26.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#mostrarImagen" onMouseEntered="#colorButton" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>

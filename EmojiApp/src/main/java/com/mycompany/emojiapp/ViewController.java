@@ -66,6 +66,7 @@ public class ViewController implements Initializable {
             cargarImagenesInicio();
             colocarImagenBotones();
             ActionButton();
+            colorButton();
             
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -443,6 +444,30 @@ public class ViewController implements Initializable {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Login.fxml"));
             Parent root = loader.load();
             App.getScene().setRoot(root);
+    }
+    
+    @FXML
+    private void colorButton(){
+        option1.setOnMouseEntered((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option1.setOnMouseExited((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option2.setOnMouseEntered((MouseEvent e) -> { option2.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option2.setOnMouseExited((MouseEvent e) -> { option2.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option3.setOnMouseEntered((MouseEvent e) -> { option3.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option3.setOnMouseExited((MouseEvent e) -> { option3.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option4.setOnMouseEntered((MouseEvent e) -> { option4.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option4.setOnMouseExited((MouseEvent e) -> { option4.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option5.setOnMouseEntered((MouseEvent e) -> { option5.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option5.setOnMouseExited((MouseEvent e) -> { option5.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option6.setOnMouseEntered((MouseEvent e) -> { option6.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option6.setOnMouseExited((MouseEvent e) -> { option6.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        option7.setOnMouseEntered((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(190,190,190)");});
+        option7.setOnMouseExited((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(91,91,91)");});
     }
     
 }
