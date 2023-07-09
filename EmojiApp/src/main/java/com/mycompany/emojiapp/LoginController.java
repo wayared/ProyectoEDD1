@@ -68,8 +68,11 @@ public class LoginController implements Initializable {
          try{
          User.login(user,password);
         } catch (NullPointerException n) {
-            AlertBoxes.errorAlert("Error", "No puede dejar ningún campo de texto vacío", "Usuario no registrado");
-        }    
+            AlertBoxes.errorAlert("Error", "No puede dejar ningún campo de texto vacío", "Inténtelo nuevamente");
+        }  
+         catch (IOException n) {
+            AlertBoxes.errorAlert("Error", "No se pudo encontrar el usuario", "Usuario no registrado");
+        }   
         
     }
 }

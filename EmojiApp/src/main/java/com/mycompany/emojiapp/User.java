@@ -78,7 +78,7 @@ public class User {
             }          
         }
         if (bool) {
-        throw new NullPointerException();
+        throw new IOException();
         }
     }
     
