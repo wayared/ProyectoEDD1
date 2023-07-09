@@ -446,8 +446,8 @@ public class ViewController implements Initializable {
             App.getScene().setRoot(root);
     }
     
-    @FXML
-    private void colorButton(){
+    @FXML  
+    private void colorButton(){  // Funcion para cambiar el color de fondo de cada boton 
         option1.setOnMouseEntered((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(190,190,190)");});
         option1.setOnMouseExited((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(91,91,91)");});
         
