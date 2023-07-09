@@ -19,11 +19,6 @@
          <children>
             <HBox prefHeight="56.0" prefWidth="645.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="214.0" style="-fx-background-color: rgb(91, 91, 91);" text="Logout">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
                   <Label prefHeight="73.0" prefWidth="826.0" text="EmojiApp" textFill="#c3c3c3">
                      <padding>
                         <Insets left="270.0" />
@@ -35,6 +30,11 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="26.0" prefWidth="228.0" style="-fx-background-color: rgb(91, 91, 91);" text="Logout">
+                     <HBox.margin>
+                        <Insets right="10.0" top="-1.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
             <HBox fx:id="hbox" prefHeight="182.0" prefWidth="600.0">

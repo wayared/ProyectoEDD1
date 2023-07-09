@@ -29,6 +29,8 @@ import javafx.scene.input.MouseEvent;
 import java.nio.file.StandardCopyOption;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -113,6 +115,8 @@ public class ViewController implements Initializable {
     private Button loadImg;
 
     LinkedList<Image> imagenes = new LinkedList<>();
+    
+    
     
     
 
@@ -431,6 +435,14 @@ public class ViewController implements Initializable {
         MouthButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
         mouthGroup=true; index = 4;});
                                        
+    }
+    
+    @FXML
+    private void logout(MouseEvent event ) throws IOException{
+        
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("Login.fxml"));
+            Parent root = loader.load();
+            App.getScene().setRoot(root);
     }
     
 }
