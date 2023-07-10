@@ -356,14 +356,15 @@ public class ViewController implements Initializable {
             ImageView img = (ImageView) option1.getGraphic();
             Image imagen = img.getImage();
             System.out.println("imagen original " + imagen.toString());
-            facePanel.setMaxHeight(180);
-            facePanel.setMaxWidth(180);
+            facePanel.setMaxHeight(150);
+            facePanel.setMaxWidth(150);
             facePanel.getChildren().clear();
             Iterator<Image> it = imagenes.iterator();
             while(it.hasNext()){
                Image image = it.next();
                 System.out.println(image.toString());
                if (imagen.equals(image)){
+                   System.out.println("tamanio" + image.getHeight());
                    ImageView pic = new ImageView();
                    pic.setFitHeight(150);
                    pic.setFitWidth(150);

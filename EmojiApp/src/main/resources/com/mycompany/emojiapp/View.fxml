@@ -42,9 +42,9 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <StackPane fx:id="panel" maxHeight="180.0" maxWidth="180.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <StackPane fx:id="panel" maxHeight="150.0" maxWidth="150.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
-                        <Insets left="260.0" />
+                        <Insets left="275.0" top="20.0" />
                      </HBox.margin>
                   </StackPane>
                </children>
@@ -53,7 +53,7 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="135.0" />
+                        <Insets left="150.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Franklin Gothic Medium" size="12.0" />
@@ -61,14 +61,14 @@
                   </Button>
                   <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Franklin Gothic Medium" size="12.0" />
                      </font></Button>
                   <Button fx:id="EyeBrowsButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Cejas">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Franklin Gothic Medium Cond" size="12.0" />
@@ -76,14 +76,14 @@
                   </Button>
                   <Button fx:id="MouthButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Boca">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Franklin Gothic Medium" size="12.0" />
                      </font></Button>
                   <Button fx:id="AccessoriesButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Accesorios">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Franklin Gothic Medium Cond" size="12.0" />
@@ -91,7 +91,7 @@
                   </Button>
                   <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="25.0" prefWidth="26.0">
                      <HBox.margin>
-                        <Insets left="30.0" />
+                        <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                   </Button>
                </children>
