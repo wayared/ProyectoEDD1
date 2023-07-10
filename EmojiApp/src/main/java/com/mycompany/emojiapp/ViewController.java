@@ -67,6 +67,7 @@ public class ViewController implements Initializable {
             colocarImagenBotones();
             ActionButton();
             colorButton();
+            Paneles();
             
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -80,6 +81,18 @@ public class ViewController implements Initializable {
     
     @FXML
     private StackPane panel;
+    
+    @FXML
+    private StackPane facePanel = new StackPane(); 
+    @FXML
+    private StackPane eyePanel = new StackPane(); 
+    @FXML
+    private StackPane mouthPanel = new StackPane(); 
+    @FXML
+    private StackPane eyebrowsPanel = new StackPane(); 
+    @FXML
+    private StackPane accessoriesPanel = new StackPane(); 
+
     
     @FXML
     private Button FaceButton;
@@ -117,11 +130,7 @@ public class ViewController implements Initializable {
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
-    
-    
-    
 
-    
     public LinkedList<Button>  listaBotones(){
         LinkedList<Button> lista = new LinkedList<>();  // CREO UNA LISTA CON LOS BOTONES DE CADA OPCON A ELEGIR
         lista.addLast(option1);
@@ -344,13 +353,35 @@ public class ViewController implements Initializable {
     private void mostrarImagen(MouseEvent event){
                 
         option1.setOnMouseClicked((MouseEvent e) ->{
-            ImageView imagen = (ImageView)option1.getGraphic();
-            ImageView imagen2 = new ImageView(imagen.getImage());
-            ImageView img = new ImageView(imagen2.getImage());
-            img.setFitHeight(120);
-            img.setFitWidth(120);         
-            panel.getChildren().add(index,img);           
+            ImageView img = (ImageView) option1.getGraphic();
+            Image imagen = img.getImage();
+            System.out.println("imagen original " + imagen.toString());
+            facePanel.setMaxHeight(180);
+            facePanel.setMaxWidth(180);
+            facePanel.getChildren().clear();
+            Iterator<Image> it = imagenes.iterator();
+            while(it.hasNext()){
+               Image image = it.next();
+                System.out.println(image.toString());
+               if (imagen.equals(image)){
+                   ImageView pic = new ImageView();
+                   pic.setFitHeight(150);
+                   pic.setFitWidth(150);
+                   pic.setImage(image);
+                   facePanel.getChildren().add(pic);
+               }
+            }
+                     
        });
+    }
+    
+    private void Paneles(){
+        panel.getChildren().add(facePanel);
+        panel.getChildren().add(eyePanel);
+        panel.getChildren().add(eyebrowsPanel);
+        panel.getChildren().add(mouthPanel);
+        panel.getChildren().add(accessoriesPanel);
+        
     }
        
     // METODO PARA SUBIR UNA AGREGAR UNA IMAGEN A LA LISTA 
