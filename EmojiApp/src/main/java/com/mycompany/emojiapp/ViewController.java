@@ -474,6 +474,27 @@ public class ViewController implements Initializable {
         }
     }
     
+     private void showMouth(Button mouth){
+        if(EyeBrowsGroup){
+        ImageView img = (ImageView) mouth.getGraphic();
+            Image imagen = img.getImage();
+        
+            mouthPanel.getChildren().clear();
+            Iterator<Image> it = imagenes.iterator();
+            
+            while(it.hasNext()){
+               Image image = it.next();
+               if (imagen.equals(image) ){
+                   ImageView pic = new ImageView();
+                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
+                   pic.setFitHeight(85);
+                   pic.setFitWidth(85);
+                   pic.setImage(image);
+                   mouthPanel.getChildren().add(pic);
+               }
+            }     
+        }
+    }
     private void Paneles(){
         facePanel.setMaxHeight(150);
         facePanel.setMaxWidth(150);
