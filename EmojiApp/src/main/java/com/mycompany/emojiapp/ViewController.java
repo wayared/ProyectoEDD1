@@ -80,7 +80,7 @@ public class ViewController implements Initializable {
     private HBox hbox;
     
     @FXML
-    private StackPane panel;
+    private Pane panel;
     
     @FXML
     private Pane facePanel = new StackPane(); 
@@ -351,9 +351,7 @@ public class ViewController implements Initializable {
     
     @FXML
     private void mostrarImagen(MouseEvent event){
-                
-//        if(faceGroup){
-           
+                          
         option1.setOnMouseClicked((MouseEvent e) ->{
               showFace(option1);
               showEyes(option1);
@@ -403,34 +401,6 @@ public class ViewController implements Initializable {
               showMouth(option7);
               showAccessories(option7);
             });
-        
-//        }
-        
-//        else if(EyeGroup){
-//            System.out.println("entra a eyesgroup");
-//        option1.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option1);
-//            });
-//        option2.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option2);
-//            });
-//        option3.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option3);
-//            });
-//        option4.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option4);
-//            });
-//        option5.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option5);
-//            });
-//        option6.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option6);
-//            });
-//        option7.setOnMouseClicked((MouseEvent e) ->{
-//              showEyes(option7);
-//            });
-//       
-//        }
     }
     
     private void showFace(Button face){
@@ -449,6 +419,7 @@ public class ViewController implements Initializable {
                    pic.setFitHeight(150);
                    pic.setFitWidth(150);
                    pic.setImage(image);
+                   System.out.println(facePanel.getLayoutX() + " " + facePanel.getLayoutY());
                    facePanel.getChildren().add(pic);
                }
             }
@@ -468,9 +439,11 @@ public class ViewController implements Initializable {
                if (imagen.equals(image)){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(85);
-                   pic.setFitWidth(85);
+                    pic.setFitHeight(95);
+                   pic.setFitWidth(95);
                    pic.setImage(image);
+                   System.out.println(eyePanel.getLayoutY());
+                   
                    eyePanel.getChildren().add(pic);
                }
             }     
@@ -492,8 +465,8 @@ public class ViewController implements Initializable {
                if (imagen.equals(image) ){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(85);
-                   pic.setFitWidth(85);
+                    pic.setFitHeight(95);
+                   pic.setFitWidth(95);
                    pic.setImage(image);
                    eyebrowsPanel.getChildren().add(pic);
                }
@@ -514,8 +487,8 @@ public class ViewController implements Initializable {
                if (imagen.equals(image) ){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(85);
-                   pic.setFitWidth(85);
+                   pic.setFitHeight(65);
+                   pic.setFitWidth(65);
                    pic.setImage(image);
                    mouthPanel.getChildren().add(pic);
                }
@@ -536,8 +509,8 @@ public class ViewController implements Initializable {
                if (imagen.equals(image) ){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(85);
-                   pic.setFitWidth(85);
+                   pic.setFitHeight(105);
+                   pic.setFitWidth(105);
                    pic.setImage(image);
                    accessoriesPanel.getChildren().add(pic);
                }
@@ -547,10 +520,19 @@ public class ViewController implements Initializable {
     private void Paneles(){
         facePanel.setMaxHeight(150);
         facePanel.setMaxWidth(150);
-        facePanel.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
+        facePanel.setLayoutY(5);
+        facePanel.setLayoutX(10);
         eyePanel.setMaxHeight(85);
         eyePanel.setMaxWidth(85);
-        eyePanel.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
+        eyePanel.setLayoutY(20);
+        eyePanel.setLayoutX(38);
+        accessoriesPanel.setLayoutY(13);
+        accessoriesPanel.setLayoutX(33);
+        mouthPanel.setLayoutY(80);
+        mouthPanel.setLayoutX(53);
+        eyebrowsPanel.setLayoutX(37);
+        eyebrowsPanel.setLayoutY(7);
+        
         panel.getChildren().addAll(facePanel, eyePanel, eyebrowsPanel, mouthPanel, accessoriesPanel);
 //        panel.getChildren().add(eyePanel);
 //        panel.getChildren().add(eyebrowsPanel);
