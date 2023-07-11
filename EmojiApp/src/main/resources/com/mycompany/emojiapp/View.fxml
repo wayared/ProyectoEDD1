@@ -42,7 +42,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <StackPane fx:id="panel" maxHeight="170.0" maxWidth="170.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <StackPane fx:id="panel" maxHeight="170.0" maxWidth="170.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91); -fx-background-radius: 15;">
                      <HBox.margin>
                         <Insets left="275.0" top="20.0" />
                      </HBox.margin>

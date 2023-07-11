@@ -83,9 +83,9 @@ public class ViewController implements Initializable {
     private StackPane panel;
     
     @FXML
-    private StackPane facePanel = new StackPane(); 
+    private Pane facePanel = new StackPane(); 
     @FXML
-    private StackPane eyePanel = new StackPane(); 
+    private Pane eyePanel = new StackPane(); 
     @FXML
     private StackPane mouthPanel = new StackPane(); 
     @FXML
@@ -352,9 +352,11 @@ public class ViewController implements Initializable {
     @FXML
     private void mostrarImagen(MouseEvent event){
                 
-        if(faceGroup){
+//        if(faceGroup){
+           
         option1.setOnMouseClicked((MouseEvent e) ->{
               showFace(option1);
+              showEyes(option1);
             });
         option2.setOnMouseClicked((MouseEvent e) ->{
               showFace(option2);
@@ -374,34 +376,38 @@ public class ViewController implements Initializable {
         option7.setOnMouseClicked((MouseEvent e) ->{
               showFace(option7);
             });
-        }
         
-        if(EyeGroup){
-        option1.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option1);
-            });
-        option2.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option2);
-            });
-        option3.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option3);
-            });
-        option4.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option4);
-            });
-        option5.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option5);
-            });
-        option6.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option6);
-            });
-        option7.setOnMouseClicked((MouseEvent e) ->{
-              showEyes(option7);
-            });
-        }
+//        }
+        
+//        else if(EyeGroup){
+//            System.out.println("entra a eyesgroup");
+//        option1.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option1);
+//            });
+//        option2.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option2);
+//            });
+//        option3.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option3);
+//            });
+//        option4.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option4);
+//            });
+//        option5.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option5);
+//            });
+//        option6.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option6);
+//            });
+//        option7.setOnMouseClicked((MouseEvent e) ->{
+//              showEyes(option7);
+//            });
+//       
+//        }
     }
     
     private void showFace(Button face){
+        if(faceGroup){
         ImageView img = (ImageView) face.getGraphic();
             Image imagen = img.getImage();
         
@@ -410,7 +416,7 @@ public class ViewController implements Initializable {
             
             while(it.hasNext()){
                Image image = it.next();
-               if (imagen.equals(image)){
+               if (imagen.equals(image) ){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
                    pic.setFitHeight(150);
@@ -418,10 +424,12 @@ public class ViewController implements Initializable {
                    pic.setImage(image);
                    facePanel.getChildren().add(pic);
                }
-            }               
+            }
+        }
     }
     
     private void showEyes(Button eyes){
+        if(EyeGroup){
         ImageView img = (ImageView) eyes.getGraphic();
             Image imagen = img.getImage();
         
@@ -430,25 +438,30 @@ public class ViewController implements Initializable {
             
             while(it.hasNext()){
                Image image = it.next();
-               if (imagen.equals(image)){
+               if (imagen.equals(image) && EyeGroup){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(100);
-                   pic.setFitWidth(100);
+                   pic.setFitHeight(85);
+                   pic.setFitWidth(85);
                    pic.setImage(image);
                    eyePanel.getChildren().add(pic);
                }
-            }               
+            }     
+        }
     }
     
     private void Paneles(){
         facePanel.setMaxHeight(150);
         facePanel.setMaxWidth(150);
-        panel.getChildren().add(facePanel);
-        panel.getChildren().add(eyePanel);
-        panel.getChildren().add(eyebrowsPanel);
-        panel.getChildren().add(mouthPanel);
-        panel.getChildren().add(accessoriesPanel);
+        facePanel.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
+        eyePanel.setMaxHeight(85);
+        eyePanel.setMaxWidth(85);
+        eyePanel.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
+        panel.getChildren().addAll(facePanel, eyePanel, eyebrowsPanel, mouthPanel, accessoriesPanel);
+//        panel.getChildren().add(eyePanel);
+//        panel.getChildren().add(eyebrowsPanel);
+//        panel.getChildren().add(mouthPanel);
+//        panel.getChildren().add(accessoriesPanel);
         
     }
        
