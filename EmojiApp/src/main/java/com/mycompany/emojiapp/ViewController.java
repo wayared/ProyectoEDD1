@@ -405,22 +405,20 @@ public class ViewController implements Initializable {
     
     private void showFace(Button face){
         if(faceGroup){
-        ImageView img = (ImageView) face.getGraphic();
-            Image imagen = img.getImage();
+        ImageView img = (ImageView) face.getGraphic(); // OBTENER EL GRAFICO DEL BOTON
+            Image imagen = img.getImage(); // OBTENER IMAGEN DEL NODO IMAGEVIEW
         
-            facePanel.getChildren().clear();
-            Iterator<Image> it = imagenes.iterator();
-            
+            facePanel.getChildren().clear(); // ELIMINAMOS EL ELEMENTO DEL PANEL PARA REEMPLAZARLO
+            Iterator<Image> it = imagenes.iterator(); 
+            //ITERAR LOS ARCHIVOS DE IMAGENES          
             while(it.hasNext()){
-               Image image = it.next();
-               if (imagen.equals(image) ){
-                   ImageView pic = new ImageView();
-                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(150);
+               Image image = it.next(); // OBTENEMOS EL ELEMENTO PARA COMPARAR
+               if (imagen.equals(image) ){  // SI LA IMAGEN OBTENIDA DEL BOTON ES IGUAL AL ARHIVO IMAGEN DE LA CARPETA
+                   ImageView pic = new ImageView();  // CREO UN IMAGEVIEW PARA AGREGARLA AL PANEL
+                   pic.setFitHeight(150); // AJUSTAR TAMANIO 
                    pic.setFitWidth(150);
-                   pic.setImage(image);
-                   System.out.println(facePanel.getLayoutX() + " " + facePanel.getLayoutY());
-                   facePanel.getChildren().add(pic);
+                   pic.setImage(image); // AGREGO LA IMAGEN OBTENIDA AL IMAGEVIEW
+                   facePanel.getChildren().add(pic);// AGREGO EL IMAGEVIEW AL PANEL DEL ROSTRO
                }
             }
         }
@@ -509,8 +507,8 @@ public class ViewController implements Initializable {
                if (imagen.equals(image) ){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
-                   pic.setFitHeight(105);
-                   pic.setFitWidth(105);
+                   pic.setFitHeight(105); 
+                   pic.setFitWidth(105); 
                    pic.setImage(image);
                    accessoriesPanel.getChildren().add(pic);
                }
@@ -518,6 +516,7 @@ public class ViewController implements Initializable {
         }
     }
     private void Paneles(){
+        //AJUSTAR POSICION 
         facePanel.setMaxHeight(150);
         facePanel.setMaxWidth(150);
         facePanel.setLayoutY(5);
@@ -534,10 +533,6 @@ public class ViewController implements Initializable {
         eyebrowsPanel.setLayoutY(7);
         
         panel.getChildren().addAll(facePanel, eyePanel, eyebrowsPanel, mouthPanel, accessoriesPanel);
-//        panel.getChildren().add(eyePanel);
-//        panel.getChildren().add(eyebrowsPanel);
-//        panel.getChildren().add(mouthPanel);
-//        panel.getChildren().add(accessoriesPanel);
         
     }
        
