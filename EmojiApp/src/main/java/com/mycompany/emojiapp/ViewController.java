@@ -425,7 +425,7 @@ public class ViewController implements Initializable {
         ImageView img = (ImageView) eyes.getGraphic();
             Image imagen = img.getImage();
         
-            facePanel.getChildren().clear();
+            eyePanel.getChildren().clear();
             Iterator<Image> it = imagenes.iterator();
             
             while(it.hasNext()){
@@ -436,7 +436,7 @@ public class ViewController implements Initializable {
                    pic.setFitHeight(100);
                    pic.setFitWidth(100);
                    pic.setImage(image);
-                   facePanel.getChildren().add(pic);
+                   eyePanel.getChildren().add(pic);
                }
             }               
     }
