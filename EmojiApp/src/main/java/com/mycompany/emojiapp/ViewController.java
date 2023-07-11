@@ -352,31 +352,98 @@ public class ViewController implements Initializable {
     @FXML
     private void mostrarImagen(MouseEvent event){
                 
+        if(faceGroup){
         option1.setOnMouseClicked((MouseEvent e) ->{
-            ImageView img = (ImageView) option1.getGraphic();
+              showFace(option1);
+            });
+        option2.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option2);
+            });
+        option3.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option3);
+            });
+        option4.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option4);
+            });
+        option5.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option5);
+            });
+        option6.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option6);
+            });
+        option7.setOnMouseClicked((MouseEvent e) ->{
+              showFace(option7);
+            });
+        }
+        
+        if(EyeGroup){
+        option1.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option1);
+            });
+        option2.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option2);
+            });
+        option3.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option3);
+            });
+        option4.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option4);
+            });
+        option5.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option5);
+            });
+        option6.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option6);
+            });
+        option7.setOnMouseClicked((MouseEvent e) ->{
+              showEyes(option7);
+            });
+        }
+    }
+    
+    private void showFace(Button face){
+        ImageView img = (ImageView) face.getGraphic();
             Image imagen = img.getImage();
-            System.out.println("imagen original " + imagen.toString());
-            facePanel.setMaxHeight(150);
-            facePanel.setMaxWidth(150);
+        
             facePanel.getChildren().clear();
             Iterator<Image> it = imagenes.iterator();
+            
             while(it.hasNext()){
                Image image = it.next();
-                System.out.println(image.toString());
                if (imagen.equals(image)){
-                   System.out.println("tamanio" + image.getHeight());
                    ImageView pic = new ImageView();
+                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
                    pic.setFitHeight(150);
                    pic.setFitWidth(150);
                    pic.setImage(image);
                    facePanel.getChildren().add(pic);
                }
-            }
-                     
-       });
+            }               
+    }
+    
+    private void showEyes(Button eyes){
+        ImageView img = (ImageView) eyes.getGraphic();
+            Image imagen = img.getImage();
+        
+            facePanel.getChildren().clear();
+            Iterator<Image> it = imagenes.iterator();
+            
+            while(it.hasNext()){
+               Image image = it.next();
+               if (imagen.equals(image)){
+                   ImageView pic = new ImageView();
+                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
+                   pic.setFitHeight(100);
+                   pic.setFitWidth(100);
+                   pic.setImage(image);
+                   facePanel.getChildren().add(pic);
+               }
+            }               
     }
     
     private void Paneles(){
+        facePanel.setMaxHeight(150);
+        facePanel.setMaxWidth(150);
         panel.getChildren().add(facePanel);
         panel.getChildren().add(eyePanel);
         panel.getChildren().add(eyebrowsPanel);

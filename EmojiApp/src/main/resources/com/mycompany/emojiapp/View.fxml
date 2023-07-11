@@ -42,7 +42,7 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <StackPane fx:id="panel" maxHeight="150.0" maxWidth="150.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <StackPane fx:id="panel" maxHeight="170.0" maxWidth="170.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="275.0" top="20.0" />
                      </HBox.margin>
@@ -108,32 +108,32 @@
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option2" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option2" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option3" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option3" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option4" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option4" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option5" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option5" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option6" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option6" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="option7" mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
+                  <Button fx:id="option7" mnemonicParsing="false" onMouseClicked="#mostrarImagen" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">
                      <HBox.margin>
                         <Insets left="10.0" top="30.0" />
                      </HBox.margin>
