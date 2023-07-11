@@ -87,11 +87,11 @@ public class ViewController implements Initializable {
     @FXML
     private Pane eyePanel = new StackPane(); 
     @FXML
-    private StackPane mouthPanel = new StackPane(); 
+    private Pane mouthPanel = new StackPane(); 
     @FXML
-    private StackPane eyebrowsPanel = new StackPane(); 
+    private Pane eyebrowsPanel = new StackPane(); 
     @FXML
-    private StackPane accessoriesPanel = new StackPane(); 
+    private Pane accessoriesPanel = new StackPane(); 
 
     
     @FXML
@@ -438,13 +438,37 @@ public class ViewController implements Initializable {
             
             while(it.hasNext()){
                Image image = it.next();
-               if (imagen.equals(image) && EyeGroup){
+               if (imagen.equals(image)){
                    ImageView pic = new ImageView();
                    System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
                    pic.setFitHeight(85);
                    pic.setFitWidth(85);
                    pic.setImage(image);
                    eyePanel.getChildren().add(pic);
+               }
+            }     
+        }
+    }
+    
+    
+    
+    private void showEyeBrows(Button eyebrows){
+        if(EyeBrowsGroup){
+        ImageView img = (ImageView) eyebrows.getGraphic();
+            Image imagen = img.getImage();
+        
+            eyebrowsPanel.getChildren().clear();
+            Iterator<Image> it = imagenes.iterator();
+            
+            while(it.hasNext()){
+               Image image = it.next();
+               if (imagen.equals(image) ){
+                   ImageView pic = new ImageView();
+                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
+                   pic.setFitHeight(85);
+                   pic.setFitWidth(85);
+                   pic.setImage(image);
+                   eyebrowsPanel.getChildren().add(pic);
                }
             }     
         }
