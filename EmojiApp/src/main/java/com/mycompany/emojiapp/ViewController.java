@@ -357,24 +357,51 @@ public class ViewController implements Initializable {
         option1.setOnMouseClicked((MouseEvent e) ->{
               showFace(option1);
               showEyes(option1);
+              showEyeBrows(option1);
+              showMouth(option1);
+              showAccessories(option1);
             });
         option2.setOnMouseClicked((MouseEvent e) ->{
               showFace(option2);
+              showEyes(option2);
+              showEyeBrows(option2);
+              showMouth(option2);
+              showAccessories(option2);
             });
         option3.setOnMouseClicked((MouseEvent e) ->{
               showFace(option3);
+              showEyes(option3);
+              showEyeBrows(option3);
+              showMouth(option3);
+              showAccessories(option3);
             });
         option4.setOnMouseClicked((MouseEvent e) ->{
               showFace(option4);
+              showEyes(option4);
+              showEyeBrows(option4);
+              showMouth(option4);
+              showAccessories(option4);
             });
         option5.setOnMouseClicked((MouseEvent e) ->{
               showFace(option5);
+              showEyes(option5);
+              showEyeBrows(option5);
+              showMouth(option5);
+              showAccessories(option5);
             });
         option6.setOnMouseClicked((MouseEvent e) ->{
               showFace(option6);
+              showEyes(option6);
+              showEyeBrows(option6);
+              showMouth(option6);
+              showAccessories(option6);
             });
         option7.setOnMouseClicked((MouseEvent e) ->{
               showFace(option7);
+              showEyes(option7);
+              showEyeBrows(option7);
+              showMouth(option7);
+              showAccessories(option7);
             });
         
 //        }
@@ -475,7 +502,7 @@ public class ViewController implements Initializable {
     }
     
      private void showMouth(Button mouth){
-        if(EyeBrowsGroup){
+        if(mouthGroup){
         ImageView img = (ImageView) mouth.getGraphic();
             Image imagen = img.getImage();
         
@@ -491,6 +518,28 @@ public class ViewController implements Initializable {
                    pic.setFitWidth(85);
                    pic.setImage(image);
                    mouthPanel.getChildren().add(pic);
+               }
+            }     
+        }
+    }
+     
+     private void showAccessories(Button mouth){
+        if(accesoriesGroup){
+        ImageView img = (ImageView) mouth.getGraphic();
+            Image imagen = img.getImage();
+        
+            accessoriesPanel.getChildren().clear();
+            Iterator<Image> it = imagenes.iterator();
+            
+            while(it.hasNext()){
+               Image image = it.next();
+               if (imagen.equals(image) ){
+                   ImageView pic = new ImageView();
+                   System.out.println(pic.getFitHeight() + " " + pic.getFitWidth());
+                   pic.setFitHeight(85);
+                   pic.setFitWidth(85);
+                   pic.setImage(image);
+                   accessoriesPanel.getChildren().add(pic);
                }
             }     
         }
