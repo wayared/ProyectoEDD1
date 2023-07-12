@@ -330,9 +330,9 @@ public class ViewController implements Initializable {
     private void nextElement(MouseEvent event){
         
         nextButton.setOnMouseClicked((MouseEvent e) ->{
-        imagenes.nextNode();                            
-        Iterator<Button> listaBotones = listaBotones().iterator();
-        Iterator<Image> images = imagenes.iterator();
+        imagenes.nextNode();     // INVOCO EL METODO PARA "DESPLAZAR" LOS ELEMENTOS A LA IZQUIERDA                      
+        Iterator<Button> listaBotones = listaBotones().iterator(); //ITEROSOBRE LA LISTA DE BOTONES
+        Iterator<Image> images = imagenes.iterator();//PARA SETEAR NUEVAMENTE LAS IMAGENES
          while(listaBotones.hasNext()){ 
              listaBotones.next().setGraphic(new ImageView(images.next()));
              
@@ -404,7 +404,7 @@ public class ViewController implements Initializable {
     }
     
     private void showFace(Button face){
-        if(faceGroup){
+        if(faceGroup){// SI ESTA ACTIVADO EL CONTROL DE GRUPOS
         ImageView img = (ImageView) face.getGraphic(); // OBTENER EL GRAFICO DEL BOTON
             Image imagen = img.getImage(); // OBTENER IMAGEN DEL NODO IMAGEVIEW
         
@@ -547,7 +547,7 @@ public class ViewController implements Initializable {
         int respuesta = selectFile.showOpenDialog(null);
         
         if(respuesta == selectFile.APPROVE_OPTION &&  faceGroup){  // APPROVE_OPTION = BOTON ABRIR
-                                                               // SI EL BOTON DE ABRIR ES PRECIONADO Y EL 
+                                                               // SI EL BOTON DE ABRIR ES PRESIONADO Y EL 
                                                                //GRUPO DE ELEMENTOS FUE PRESIONADO
             path = selectFile.getSelectedFile().getPath();    // OBTIENE LA RUTA DEL ARCHIVO A AGREGAR
             String fileName = selectFile.getSelectedFile().getName(); // OBTENEMOS EL NOMBRE DEL ARCHIVOSELECCIONADO
@@ -623,14 +623,15 @@ public class ViewController implements Initializable {
     
     @FXML
     private void logout(MouseEvent event ) throws IOException{
-        
+        // LOGOUT  PARA REGRESAR A LA VISTA DE INICIO DE SESION
         FXMLLoader loader = new FXMLLoader(App.class.getResource("Login.fxml"));
             Parent root = loader.load();
             App.getScene().setRoot(root);
     }
     
     @FXML  
-    private void colorButton(){  // Funcion para cambiar el color de fondo de cada boton 
+    private void colorButton(){  
+    // FUNCION DE EVENTO PARA CAMBIAR EL FONO DEL BOTON CUANDO EL PUNTERO DEL MOUSE INGRESA Y SALE DEL BOTON
         option1.setOnMouseEntered((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(190,190,190)");});
         option1.setOnMouseExited((MouseEvent e) -> { option1.setStyle("-fx-background-color: rgb(91,91,91)");});
         
@@ -652,5 +653,22 @@ public class ViewController implements Initializable {
         option7.setOnMouseEntered((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(190,190,190)");});
         option7.setOnMouseExited((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(91,91,91)");});
     }
-    
-}
+////    
+////    private void removeImage(Button button) throws IOException{
+////        if(faceGroup){// SI ESTA ACTIVADO EL CONTROL DE GRUPOS
+////       
+////           
+////                ImageView img = (ImageView) button.getGraphic(); // OBTENER EL GRAFICO DEL BOTON
+////                Image imagen = img.getImage();
+////                imagen.
+////                // OBTENER IMAGEN DEL NODO IMAGEVIEW
+////                DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
+////                for(Path file: stream ){
+////                    if(imagen.){
+////                        
+////                    }
+////                }
+////              }    
+////            }
+   }
+ 
