@@ -355,7 +355,10 @@ public class ViewController implements Initializable {
         Iterator<Button> listaBotones = listaBotones().iterator(); //ITEROSOBRE LA LISTA DE BOTONES
         Iterator<Image> images = imagenes.iterator();//PARA SETEAR NUEVAMENTE LAS IMAGENES
          while(listaBotones.hasNext()){ 
-             listaBotones.next().setGraphic(new ImageView(images.next()));
+             ImageView imageview = new ImageView(images.next());
+            imageview.setFitHeight(50);
+            imageview.setFitWidth(50);
+             listaBotones.next().setGraphic(imageview);
              
          }
                   
