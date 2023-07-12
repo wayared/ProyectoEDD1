@@ -270,17 +270,28 @@ public class ViewController implements Initializable {
      private void cargarImagenesInicio() throws FileNotFoundException, IOException{ //CARGA IAMGENES AL INICIALIZAR EL SISTEMA
         imagenes.clear();
         if(faceGroup){
-        DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
-        for(Path file: stream ){
-            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" + file.getFileName()),50,50,true,false));
-      
-        }
+//        DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\faces"));
+//        for(Path file: stream ){
+//            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\faces\\" + file.getFileName()),50,50,true,false));
+//      
+//        }
+         File faceFiles = new File("src\\main\\resources\\com\\mycompany\\images\\faces");
+         File[] listFaces = faceFiles.listFiles();
+         for(File file : listFaces){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+             
+         }
+         
         }else if(EyeGroup){
-            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyes"));
-        for(Path file: stream ){
-            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + file.getFileName()),50,50,true,false));
-      
-        }
+            File eyesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyes");
+         File[] listEyes = eyesFiles.listFiles();
+         for(File file : listEyes){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+         }
             
         }else if(EyeBrowsGroup){
             DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
@@ -309,7 +320,10 @@ public class ViewController implements Initializable {
          Iterator<Button> it = listaBotones().iterator();  
          Iterator<Image> it2 = imagenes.iterator();
         while(it.hasNext()){  //ITERO SOBRE LA LISTA DE BOTONES
-           it.next().setGraphic(new ImageView(it2.next())); // SETEO UNA IMAGEN A CADA BOTON
+            ImageView imageview = new ImageView(it2.next());
+            imageview.setFitHeight(50);
+            imageview.setFitWidth(50);
+           it.next().setGraphic(imageview); // SETEO UNA IMAGEN A CADA BOTON
            
         }
           
