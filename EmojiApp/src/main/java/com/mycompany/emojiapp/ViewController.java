@@ -294,11 +294,14 @@ public class ViewController implements Initializable {
          }
             
         }else if(EyeBrowsGroup){
-            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
-        for(Path file: stream ){
-            imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + file.getFileName()),50,50,true,false));
-      
-        }
+         File eyeBrowsFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyebrows");
+         File[] listEyeBrows = eyeBrowsFiles.listFiles();
+         for(File file : listEyeBrows){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+             
+         }
         }else if(mouthGroup){
             DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\mouth"));
         for(Path file: stream ){
