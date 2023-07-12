@@ -42,12 +42,14 @@
                   <Insets />
                </VBox.margin>
                <children>
-                  <Pane fx:id="panel" maxHeight="170.0" maxWidth="170.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(91, 91, 91); -fx-background-radius: 15;">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
+                  <Button fx:id="randomButton" mnemonicParsing="false" onMouseClicked="#randomEmoji" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: rgb(0, 0, 0);">
                      <HBox.margin>
-                        <Insets left="275.0" top="20.0" />
+                        <Insets left="245.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Pane fx:id="panel" maxHeight="170.0" maxWidth="170.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(91,91,91); -fx-background-radius: 15;">
+                     <HBox.margin>
+                        <Insets top="20.0" />
                      </HBox.margin>
                   </Pane>
                </children>

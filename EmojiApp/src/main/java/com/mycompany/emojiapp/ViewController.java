@@ -27,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.nio.file.StandardCopyOption;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
@@ -127,6 +128,8 @@ public class ViewController implements Initializable {
     private Button nextButton;
     @FXML
     private Button loadImg;
+    @FXML
+    private Button randomButton;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -346,7 +349,8 @@ public class ViewController implements Initializable {
         // AGREGAMOS ICONOS A LOS BOTONES DE BACK , NEXT Y SUBIR IMAGEN
         prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
         nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
-        loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));         
+        loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));  
+        randomButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\random.png" ),25,25,true,false)));   
     }
     
     @FXML
@@ -519,7 +523,7 @@ public class ViewController implements Initializable {
         //AJUSTAR POSICION 
         facePanel.setMaxHeight(150);
         facePanel.setMaxWidth(150);
-        facePanel.setLayoutY(5);
+        facePanel.setLayoutY(6);
         facePanel.setLayoutX(10);
         eyePanel.setMaxHeight(85);
         eyePanel.setMaxWidth(85);
@@ -652,6 +656,9 @@ public class ViewController implements Initializable {
         
         option7.setOnMouseEntered((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(190,190,190)");});
         option7.setOnMouseExited((MouseEvent e) -> { option7.setStyle("-fx-background-color: rgb(91,91,91)");});
+        
+        randomButton.setOnMouseEntered((MouseEvent e) -> { randomButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        randomButton.setOnMouseExited((MouseEvent e) -> { randomButton.setStyle("-fx-background-color: rgb(0,0,0)");});
     }
 ////    
 ////    private void removeImage(Button button) throws IOException{
@@ -670,5 +677,70 @@ public class ViewController implements Initializable {
 ////                }
 ////              }    
 ////            }
+    
+    @FXML
+    private void randomEmoji(){
+        facePanel.getChildren().clear();
+        eyePanel.getChildren().clear();
+        eyebrowsPanel.getChildren().clear();
+        mouthPanel.getChildren().clear();
+         accessoriesPanel.getChildren().clear();
+         
+        File faceFiles = new File("src\\main\\resources\\com\\mycompany\\images\\faces");
+        File eyesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyes");
+        File eyebrowsFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyebrows");
+        File mouthFiles = new File("src\\main\\resources\\com\\mycompany\\images\\mouth");
+        File accessoriesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\accessories");
+        
+        File[] faces = faceFiles.listFiles();
+        Random random = new Random();
+        int Index = random.nextInt(faces.length);
+        File randomFace = faces[Index];
+        String ruta = randomFace.toURI().toString();
+        Image imagen = new Image(ruta);
+        ImageView img = new ImageView(imagen);
+        facePanel.getChildren().add(img);
+        
+        File[] eyes = eyesFiles.listFiles();
+        Index = random.nextInt(eyes.length);
+        File randomEyes = eyes[Index];
+        ruta = randomEyes.toURI().toString();
+        imagen = new Image(ruta);
+        img = new ImageView(imagen);
+        img.setFitHeight(95);
+        img.setFitWidth(95);
+        eyePanel.getChildren().add(img);
+        
+        File[] eyebrows = eyebrowsFiles.listFiles();
+        Index = random.nextInt(eyebrows.length);
+        File randomEyeBrows = eyebrows[Index];
+        ruta = randomEyeBrows.toURI().toString();
+        imagen = new Image(ruta);
+        img = new ImageView(imagen);
+        img.setFitHeight(95);
+        img.setFitWidth(95);
+        eyebrowsPanel.getChildren().add(img);
+        
+        File[] mouth = mouthFiles.listFiles();
+        Index = random.nextInt(mouth.length);
+        File randomMouth = mouth[Index];
+        ruta = randomMouth.toURI().toString();
+        imagen = new Image(ruta);
+        img = new ImageView(imagen);
+        img.setFitHeight(65);
+        img.setFitWidth(65);
+        mouthPanel.getChildren().add(img);
+        
+        File[] accessories = accessoriesFiles.listFiles();
+        Index = random.nextInt(accessories.length);
+        File randomAccessories = accessories[Index];
+        ruta = randomAccessories.toURI().toString();
+        imagen = new Image(ruta);
+        img = new ImageView(imagen);
+        img.setFitHeight(105); 
+        img.setFitWidth(105); 
+        accessoriesPanel.getChildren().add(img);
+    }
+    
    }
  
