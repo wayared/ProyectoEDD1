@@ -175,20 +175,13 @@ public class ViewController implements Initializable {
          
          EyeButton.setOnMouseClicked((MouseEvent e)->{
                imagenes.clear();
-        DirectoryStream<Path> stream = null;
-            try {
-                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyes"));
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        for(Path file: stream ){
-            try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyes\\" + file.getFileName()),50,50,true,false));
-                //System.out.println(file.getFileName());
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
-        }
+        File eyesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyes");
+         File[] listEyes = eyesFiles.listFiles();
+         for(File file : listEyes){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+         }
          try {
                 colocarImagenBotones();
             } catch (IOException ex) {
