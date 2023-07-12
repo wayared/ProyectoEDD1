@@ -191,7 +191,6 @@ public class ViewController implements Initializable {
              Image image = new Image(path);
              imagenes.addLast(image);
          }
-         
          try {
                 colocarImagenBotones();
             } catch (IOException ex) {
@@ -199,21 +198,14 @@ public class ViewController implements Initializable {
             }});
          
           AccessoriesButton.setOnMouseClicked((MouseEvent e) ->{
-               imagenes.clear();
-        DirectoryStream<Path> stream = null;
-            try {
-                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\accessories"));
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        for(Path file: stream ){
-            try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\accessories\\" + file.getFileName()),50,50,true,false));
-                //System.out.println(file.getFileName());
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
-        }
+                imagenes.clear();
+        File accessoriesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\accessories");
+         File[] listAccessories = accessoriesFiles.listFiles();
+         for(File file : listAccessories){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+         }
          
          try {
                 colocarImagenBotones();
@@ -222,21 +214,30 @@ public class ViewController implements Initializable {
             }});
           
           EyeBrowsButton.setOnMouseClicked((MouseEvent e) ->{
+//               imagenes.clear();
+//        DirectoryStream<Path> stream = null;
+//            try {
+//                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
+//            } catch (IOException ex) {
+//                ex.printStackTrace();
+//            }
+//        for(Path file: stream ){
+//            try {
+//                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + file.getFileName()),50,50,true,false));
+//                //System.out.println(file.getFileName());
+//            } catch (FileNotFoundException ex) {
+//                ex.printStackTrace();
+//            }
+//        }
+
                imagenes.clear();
-        DirectoryStream<Path> stream = null;
-            try {
-                stream = Files.newDirectoryStream(Paths.get("src\\main\\resources\\com\\mycompany\\images\\eyebrows"));
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        for(Path file: stream ){
-            try {
-                imagenes.addLast(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\eyebrows\\" + file.getFileName()),50,50,true,false));
-                //System.out.println(file.getFileName());
-            } catch (FileNotFoundException ex) {
-                ex.printStackTrace();
-            }
-        }
+        File eyeBrowsFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyebrows");
+         File[] listEyeBrows = eyeBrowsFiles.listFiles();
+         for(File file : listEyeBrows){
+             String path = file.toURI().toString();
+             Image image = new Image(path);
+             imagenes.addLast(image);
+         }
          
          try {
                 colocarImagenBotones();
