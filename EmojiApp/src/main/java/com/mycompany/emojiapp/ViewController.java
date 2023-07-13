@@ -69,6 +69,7 @@ public class ViewController implements Initializable {
             ActionButton();
             colorButton();
             Paneles();
+          
             
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
@@ -130,6 +131,14 @@ public class ViewController implements Initializable {
     private Button loadImg;
     @FXML
     private Button randomButton;
+    @FXML
+    private Button upButton;
+    @FXML
+    private Button leftButton;
+    @FXML
+    private Button rightButton;
+    @FXML
+    private Button downButton;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -358,7 +367,11 @@ public class ViewController implements Initializable {
         prevButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Larrow.png" ),45,45,true,false)));
         nextButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\Rarrow.png" ),45,45,true,false)));
         loadImg.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\upload.png" ),20,20,true,false)));  
-        randomButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\random.png" ),25,25,true,false)));   
+        randomButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\random.png" ),25,25,true,false))); 
+        upButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\up.png" ),13,13,true,false)));
+        leftButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\left.png" ),20,17,true,false)));
+        rightButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\right.png" ),20,17,true,false)));
+        downButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\down.png" ),13,13,true,false)));
     }
     
     @FXML
@@ -750,5 +763,119 @@ public class ViewController implements Initializable {
         accessoriesPanel.getChildren().add(img);
     }
     
+    @FXML
+    private void movePositionUp(MouseEvent event){
+        if(EyeGroup){
+            double position = eyePanel.getLayoutY();
+            eyePanel.setLayoutY(position - 1);
+        }
+        
+        if(faceGroup){
+            double position = facePanel.getLayoutY();
+            facePanel.setLayoutY(position - 1);
+        }    
+        
+        if(EyeBrowsGroup){
+            double position = eyebrowsPanel.getLayoutY();
+            eyebrowsPanel.setLayoutY(position - 1);
+        } 
+        
+        if(mouthGroup){
+            double position = mouthPanel.getLayoutY();
+            mouthPanel.setLayoutY(position - 1);
+        } 
+        
+        if(accesoriesGroup){
+            double position = accessoriesPanel.getLayoutY();
+            accessoriesPanel.setLayoutY(position - 1);
+        } 
    }
+    
+    @FXML
+    private void movePositionLeft(MouseEvent event){
+        if(EyeGroup){
+            double position = eyePanel.getLayoutX();
+            eyePanel.setLayoutX(position - 1);
+        }
+        
+        if(faceGroup){
+            double position = facePanel.getLayoutX();
+            facePanel.setLayoutX(position - 1);
+        }    
+        
+        if(EyeBrowsGroup){
+            double position = eyebrowsPanel.getLayoutX();
+            eyebrowsPanel.setLayoutX(position - 1);
+        } 
+        
+        if(mouthGroup){
+            double position = mouthPanel.getLayoutX();
+            mouthPanel.setLayoutX(position - 1);
+        } 
+        
+        if(accesoriesGroup){
+            double position = accessoriesPanel.getLayoutX();
+            accessoriesPanel.setLayoutX(position - 1);
+        } 
+   }
+    
+    @FXML
+    private void movePositionRight(MouseEvent event){
+        if(EyeGroup){
+            double position = eyePanel.getLayoutX();
+            eyePanel.setLayoutX(position + 1);
+        }
+        
+        if(faceGroup){
+            double position = facePanel.getLayoutX();
+            facePanel.setLayoutX(position + 1);
+        }    
+        
+        if(EyeBrowsGroup){
+            double position = eyebrowsPanel.getLayoutX();
+            eyebrowsPanel.setLayoutX(position + 1);
+        } 
+        
+        if(mouthGroup){
+            double position = mouthPanel.getLayoutX();
+            mouthPanel.setLayoutX(position + 1);
+        } 
+        
+        if(accesoriesGroup){
+            double position = accessoriesPanel.getLayoutX();
+            accessoriesPanel.setLayoutX(position + 1);
+        } 
+   }
+    
+    @FXML
+    private void movePositionDown(MouseEvent event){
+        if(EyeGroup){
+            double position = eyePanel.getLayoutY();
+            eyePanel.setLayoutY(position + 1);
+        }
+        
+        if(faceGroup){
+            double position = facePanel.getLayoutY();
+            facePanel.setLayoutY(position + 1);
+        }    
+        
+        if(EyeBrowsGroup){
+            double position = eyebrowsPanel.getLayoutY();
+            eyebrowsPanel.setLayoutY(position + 1);
+        } 
+        
+        if(mouthGroup){
+            double position = mouthPanel.getLayoutY();
+            mouthPanel.setLayoutY(position + 1);
+        } 
+        
+        if(accesoriesGroup){
+            double position = accessoriesPanel.getLayoutY();
+            accessoriesPanel.setLayoutY(position + 1);
+        } 
+   }
+    
+    
+    
+ }
  
