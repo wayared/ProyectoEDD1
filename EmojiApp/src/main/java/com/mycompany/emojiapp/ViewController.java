@@ -695,6 +695,27 @@ public class ViewController implements Initializable {
         
         randomButton.setOnMouseEntered((MouseEvent e) -> { randomButton.setStyle("-fx-background-color: rgb(91,91,91)");});
         randomButton.setOnMouseExited((MouseEvent e) -> { randomButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        upButton.setOnMouseEntered((MouseEvent e) -> { upButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        upButton.setOnMouseExited((MouseEvent e) -> { upButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        leftButton.setOnMouseEntered((MouseEvent e) -> { leftButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        leftButton.setOnMouseExited((MouseEvent e) -> { leftButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        rightButton.setOnMouseEntered((MouseEvent e) -> { rightButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        rightButton.setOnMouseExited((MouseEvent e) -> { rightButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        downButton.setOnMouseEntered((MouseEvent e) -> { downButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        downButton.setOnMouseExited((MouseEvent e) -> { downButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        loadImg.setOnMouseEntered((MouseEvent e) -> { loadImg.setStyle("-fx-background-color: rgb(91,91,91)");});
+        loadImg.setOnMouseExited((MouseEvent e) -> { loadImg.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        nextButton.setOnMouseEntered((MouseEvent e) -> { nextButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        nextButton.setOnMouseExited((MouseEvent e) -> { nextButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        prevButton.setOnMouseEntered((MouseEvent e) -> { prevButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        prevButton.setOnMouseExited((MouseEvent e) -> { prevButton.setStyle("-fx-background-color: rgb(0,0,0)");});
     }
 ////    
 ////    private void removeImage(Button button) throws IOException{

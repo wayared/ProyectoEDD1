@@ -54,26 +54,26 @@
                   </Pane>
                   <VBox prefHeight="182.0" prefWidth="182.0">
                      <children>
-                        <Button fx:id="upButton" mnemonicParsing="false" onMouseClicked="#movePositionUp" prefHeight="25.0" prefWidth="25.0">
+                        <Button fx:id="upButton" mnemonicParsing="false" onMouseClicked="#movePositionUp" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(0, 0, 0);">
                            <VBox.margin>
                               <Insets left="53.0" top="55.0" />
                            </VBox.margin>
                         </Button>
                         <HBox prefHeight="32.0" prefWidth="182.0">
                            <children>
-                              <Button fx:id="leftButton" mnemonicParsing="false" onMouseClicked="#movePositionLeft" prefHeight="23.0" prefWidth="25.0">
+                              <Button fx:id="leftButton" mnemonicParsing="false" onMouseClicked="#movePositionLeft" prefHeight="23.0" prefWidth="25.0" style="-fx-background-color: rgb(0, 0, 0);">
                                  <HBox.margin>
                                     <Insets left="27.0" top="3.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="rightButton" mnemonicParsing="false" onMouseClicked="#movePositionRight" prefHeight="0.0" prefWidth="25.0">
+                              <Button fx:id="rightButton" mnemonicParsing="false" onMouseClicked="#movePositionRight" prefHeight="0.0" prefWidth="25.0" style="-fx-background-color: rgb(0, 0, 0);">
                                  <HBox.margin>
                                     <Insets left="30.0" top="3.0" />
                                  </HBox.margin>
                               </Button>
                            </children>
                         </HBox>
-                        <Button fx:id="downButton" mnemonicParsing="false" onMouseClicked="#movePositionDown" prefHeight="25.0" prefWidth="25.0">
+                        <Button fx:id="downButton" mnemonicParsing="false" onMouseClicked="#movePositionDown" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: rgb(0, 0, 0);">
                            <VBox.margin>
                               <Insets left="53.0" />
                            </VBox.margin>
@@ -89,10 +89,10 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="150.0" top="35.0" />
+                        <Insets left="145.0" top="35.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Franklin Gothic Medium" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Button>
                   <Button fx:id="EyeButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Ojos">
@@ -100,14 +100,14 @@
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Franklin Gothic Medium" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font></Button>
-                  <Button fx:id="EyeBrowsButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Cejas">
+                  <Button fx:id="EyeBrowsButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" prefHeight="25.0" prefWidth="53.0" text="Cejas">
                      <HBox.margin>
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Franklin Gothic Medium Cond" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Button>
                   <Button fx:id="MouthButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Boca">
@@ -115,17 +115,17 @@
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Franklin Gothic Medium" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font></Button>
                   <Button fx:id="AccessoriesButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Accesorios">
                      <HBox.margin>
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="Franklin Gothic Medium Cond" size="12.0" />
+                        <Font name="Arial Black" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="25.0" prefWidth="26.0">
+                  <Button fx:id="loadImg" mnemonicParsing="false" onMouseClicked="#uploadImg" prefHeight="25.0" prefWidth="26.0" style="-fx-background-color: rgb(0,0,0);">
                      <HBox.margin>
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
