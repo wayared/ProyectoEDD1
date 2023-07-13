@@ -640,24 +640,24 @@ public class ViewController implements Initializable {
                 AlertBoxes.errorAlert("Error", "Error al subir archivo", "No se pudo cargar el archivo o la imagen ya existe.");
             }
     }
-    
+ 
     
     private void ActionButton(){   
         //CONTROL DE GRUPO DE ELEMENTOS
         FaceButton.setOnAction(e ->{ faceGroup =true;  EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=false; index = 0;});
+        mouthGroup=false;});
         
         EyeButton.setOnAction(e ->{ faceGroup =false; EyeGroup=true; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=false; index = 0;});
+        mouthGroup=false;});
         
         EyeBrowsButton.setOnAction(e ->{ faceGroup =false; EyeGroup=false; EyeBrowsGroup=true; accesoriesGroup=false;
-        mouthGroup=false; index = 2; });
+        mouthGroup=false; });
         
         AccessoriesButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=true;
-        mouthGroup=false; index = 3;});
+        mouthGroup=false;});
         
         MouthButton.setOnAction(e ->{ faceGroup = false; EyeGroup=false; EyeBrowsGroup=false; accesoriesGroup=false;
-        mouthGroup=true; index = 4;});
+        mouthGroup=true; });
                                        
     }
     
