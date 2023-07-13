@@ -156,10 +156,18 @@ public class ViewController implements Initializable {
             
         }
         
+    private void visibleButtons(){
+         upButton.setVisible(true);
+        leftButton.setVisible(true);
+        rightButton.setVisible(true);
+        downButton.setVisible(true);
+    }
+    
     @FXML
     private void cargarImagenes(MouseEvent event) throws FileNotFoundException, IOException{    
 
-        FaceButton.setOnMouseClicked((MouseEvent e) ->{  // AL PRESIONAR EL BOTON DE UN GRUPO DE ELEMENTOS
+        FaceButton.setOnMouseClicked((MouseEvent e) ->{ 
+            visibleButtons();// AL PRESIONAR EL BOTON DE UN GRUPO DE ELEMENTOS
                     imagenes.clear();       // ELIMINO TODAS LAS IMAGENES DE CADA BOTON
         File eyesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\faces");
          File[] listFaces = eyesFiles.listFiles();
@@ -177,6 +185,7 @@ public class ViewController implements Initializable {
          
          EyeButton.setOnMouseClicked((MouseEvent e)->{
                imagenes.clear();
+               visibleButtons();
         File eyesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyes");
          File[] listEyes = eyesFiles.listFiles();
          for(File file : listEyes){
@@ -193,6 +202,7 @@ public class ViewController implements Initializable {
         
          MouthButton.setOnMouseClicked((MouseEvent e) ->{
                imagenes.clear();
+               visibleButtons();
         File mouthFiles = new File("src\\main\\resources\\com\\mycompany\\images\\mouth");
          File[] listMouths = mouthFiles.listFiles();
          for(File file : listMouths){
@@ -208,6 +218,7 @@ public class ViewController implements Initializable {
          
           AccessoriesButton.setOnMouseClicked((MouseEvent e) ->{
                 imagenes.clear();
+                visibleButtons();
         File accessoriesFiles = new File("src\\main\\resources\\com\\mycompany\\images\\accessories");
          File[] listAccessories = accessoriesFiles.listFiles();
          for(File file : listAccessories){
@@ -238,7 +249,7 @@ public class ViewController implements Initializable {
 //                ex.printStackTrace();
 //            }
 //        }
-
+                visibleButtons();
                imagenes.clear();
         File eyeBrowsFiles = new File("src\\main\\resources\\com\\mycompany\\images\\eyebrows");
          File[] listEyeBrows = eyeBrowsFiles.listFiles();
@@ -372,6 +383,10 @@ public class ViewController implements Initializable {
         leftButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\left.png" ),20,17,true,false)));
         rightButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\right.png" ),20,17,true,false)));
         downButton.setGraphic(new ImageView(new Image(new FileInputStream("src\\main\\resources\\com\\mycompany\\images\\buttons\\down.png" ),13,13,true,false)));
+        upButton.setVisible(false);
+        leftButton.setVisible(false);
+        rightButton.setVisible(false);
+        downButton.setVisible(false);
     }
     
     @FXML
@@ -874,8 +889,6 @@ public class ViewController implements Initializable {
             accessoriesPanel.setLayoutY(position + 1);
         } 
    }
-    
-    
-    
+       
  }
  
