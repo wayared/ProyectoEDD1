@@ -27,11 +27,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -398,6 +402,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option1);
               showMouth(option1);
               showAccessories(option1);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option2.setOnMouseClicked((MouseEvent e) ->{
               showFace(option2);
@@ -405,6 +422,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option2);
               showMouth(option2);
               showAccessories(option2);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option3.setOnMouseClicked((MouseEvent e) ->{
               showFace(option3);
@@ -412,6 +442,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option3);
               showMouth(option3);
               showAccessories(option3);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option4.setOnMouseClicked((MouseEvent e) ->{
               showFace(option4);
@@ -419,6 +462,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option4);
               showMouth(option4);
               showAccessories(option4);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option5.setOnMouseClicked((MouseEvent e) ->{
               showFace(option5);
@@ -426,6 +482,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option5);
               showMouth(option5);
               showAccessories(option5);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option6.setOnMouseClicked((MouseEvent e) ->{
               showFace(option6);
@@ -433,6 +502,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option6);
               showMouth(option6);
               showAccessories(option6);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
         option7.setOnMouseClicked((MouseEvent e) ->{
               showFace(option7);
@@ -440,6 +522,19 @@ public class ViewController implements Initializable {
               showEyeBrows(option7);
               showMouth(option7);
               showAccessories(option7);
+              if(e.getButton()== MouseButton.SECONDARY){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText(null);
+                alert.setTitle("Confirmacion");
+                alert.setContentText("¿Deseas realmente eliminar el componente?");
+                Optional<ButtonType> action= alert.showAndWait();
+                if(action.get()== ButtonType.OK){
+                    //se pone la opcion nueva
+                    Alert al= new Alert(Alert.AlertType.INFORMATION);
+                    al.setContentText("Se elimino correctamente");
+                    al.show();
+                }
+              }
             });
     }
     
@@ -910,6 +1005,25 @@ public class ViewController implements Initializable {
             accessoriesPanel.setLayoutY(position + 1);
         } 
    }
+    @FXML
+    void eliminarComponente(MouseEvent event) {
+        if(EyeGroup){
+            eyePanel.getChildren().clear();
+        }
+        if(faceGroup){
+            facePanel.getChildren().clear();
+        }
+        if(EyeBrowsGroup){
+            eyebrowsPanel.getChildren().clear();
+        }
+        if(mouthGroup){
+            mouthPanel.getChildren().clear();
+        }
+        if(accesoriesGroup){
+            accessoriesPanel.getChildren().clear();
+        }
+    }
+       
        
  }
  
