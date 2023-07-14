@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,12 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="664.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.emojiapp.ViewController">
-    <stylesheets>
-        <URL value="@/styles/view.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="664.0" styleClass="mainFxmlClass" stylesheets="@../../../styles/view.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.emojiapp.ViewController">
    <children>
-      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0" style="-fx-background-color: rgb(0,0, 0);">
+      <VBox layoutY="-1.0" prefHeight="447.0" prefWidth="720.0">
          <children>
             <HBox prefHeight="56.0" prefWidth="645.0">
                <children>
@@ -36,7 +26,7 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="26.0" prefWidth="228.0" style="-fx-background-color: rgb(91, 91, 91);" text="Logout">
+                  <Button mnemonicParsing="false" onMouseClicked="#logout" prefHeight="26.0" prefWidth="228.0" style="-fx-background-color: rgb(91, 91, 91);" text="Logout" textFill="#d0d0d0">
                      <HBox.margin>
                         <Insets right="10.0" top="-1.0" />
                      </HBox.margin>
@@ -95,7 +85,7 @@
                <children>
                   <Button fx:id="FaceButton" mnemonicParsing="false" onMouseClicked="#cargarImagenes" text="Rostro">
                      <HBox.margin>
-                        <Insets left="145.0" top="35.0" />
+                        <Insets left="90.0" top="35.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Arial Black" size="12.0" />
@@ -136,7 +126,7 @@
                         <Insets left="30.0" top="35.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onMouseClicked="#eliminarComponente" prefHeight="21.0" prefWidth="30.0" text="X" translateX="25.0" translateY="35.0" fx:id="xButton">
+                  <Button mnemonicParsing="false" onMouseClicked="#eliminarComponente" prefHeight="21.0" prefWidth="30.0" style="-fx-background-color: rgb(0,0,0);" text="X" translateX="25.0" translateY="35.0" fx:id="xButton">
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>
@@ -147,7 +137,7 @@
                <children>
                   <Button fx:id="prevButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onMouseClicked="#prevElement" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(0, 0, 0);">
                      <HBox.margin>
-                        <Insets left="26.0" top="30.0" />
+                        <Insets left="23.0" top="30.0" />
                      </HBox.margin>
                   </Button>
                   <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#mostrarImagen" onMouseEntered="#colorButton" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: rgb(91, 91, 91);">

@@ -143,6 +143,8 @@ public class ViewController implements Initializable {
     private Button rightButton;
     @FXML
     private Button downButton;
+    @FXML
+    private Button xButton;
 
     LinkedList<Image> imagenes = new LinkedList<>();
     
@@ -811,6 +813,11 @@ public class ViewController implements Initializable {
         
         prevButton.setOnMouseEntered((MouseEvent e) -> { prevButton.setStyle("-fx-background-color: rgb(91,91,91)");});
         prevButton.setOnMouseExited((MouseEvent e) -> { prevButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        xButton.setOnMouseEntered((MouseEvent e) -> { xButton.setStyle("-fx-background-color: rgb(91,91,91)");});
+        xButton.setOnMouseExited((MouseEvent e) -> { xButton.setStyle("-fx-background-color: rgb(0,0,0)");});
+        
+        
     }
 ////    
 ////    private void removeImage(Button button) throws IOException{
@@ -851,6 +858,8 @@ public class ViewController implements Initializable {
         String ruta = randomFace.toURI().toString();
         Image imagen = new Image(ruta);
         ImageView img = new ImageView(imagen);
+        img.setFitHeight(150); // AJUSTAR TAMANIO 
+        img.setFitWidth(150);
         facePanel.getChildren().add(img);
         
         File[] eyes = eyesFiles.listFiles();
